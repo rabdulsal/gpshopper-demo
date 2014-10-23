@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPDPDPViewController">
+            <connections>
+                <outlet property="detailLabel" destination="4aH-vB-rdQ" id="lWn-Ns-I17"/>
+                <outlet property="imageView" destination="F2v-tP-Hge" id="2db-Io-orh"/>
+                <outlet property="priceLabel" destination="bLc-Ny-WUT" id="X4t-p9-2OQ"/>
+                <outlet property="titleLabel" destination="EPp-37-bAi" id="qEN-Je-cr7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLu-TX-Qv5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F2v-tP-Hge">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="F2v-tP-Hge" secondAttribute="height" multiplier="1:1" id="YfO-Zj-1Xa"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EPp-37-bAi">
+                            <rect key="frame" x="32" y="344" width="256" height="30"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="22"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Del" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bLc-Ny-WUT">
+                            <rect key="frame" x="32" y="386" width="256" height="17"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="12"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Del" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4aH-vB-rdQ">
+                            <rect key="frame" x="32" y="415" width="256" height="20"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="F2v-tP-Hge" firstAttribute="top" secondItem="bLu-TX-Qv5" secondAttribute="top" id="1Ha-hh-GCf"/>
+                        <constraint firstItem="4aH-vB-rdQ" firstAttribute="leading" secondItem="bLu-TX-Qv5" secondAttribute="leading" constant="32" id="9aw-kG-MTX"/>
+                        <constraint firstItem="F2v-tP-Hge" firstAttribute="leading" secondItem="bLu-TX-Qv5" secondAttribute="leading" id="9bC-fI-vBe"/>
+                        <constraint firstAttribute="bottom" secondItem="4aH-vB-rdQ" secondAttribute="bottom" constant="100" id="Ci8-DR-GxQ"/>
+                        <constraint firstAttribute="trailing" secondItem="bLc-Ny-WUT" secondAttribute="trailing" constant="32" id="G2O-eN-zdO"/>
+                        <constraint firstItem="EPp-37-bAi" firstAttribute="leading" secondItem="bLu-TX-Qv5" secondAttribute="leading" constant="32" id="N2h-p4-kE0"/>
+                        <constraint firstAttribute="trailing" secondItem="EPp-37-bAi" secondAttribute="trailing" constant="32" id="YAw-tF-AS3"/>
+                        <constraint firstItem="EPp-37-bAi" firstAttribute="top" secondItem="F2v-tP-Hge" secondAttribute="bottom" constant="24" id="YQN-9b-lXB"/>
+                        <constraint firstAttribute="trailing" secondItem="4aH-vB-rdQ" secondAttribute="trailing" constant="32" id="ZJf-NG-IWQ"/>
+                        <constraint firstItem="4aH-vB-rdQ" firstAttribute="top" secondItem="bLc-Ny-WUT" secondAttribute="bottom" constant="12" id="ZQ6-GQ-V89"/>
+                        <constraint firstItem="bLc-Ny-WUT" firstAttribute="top" secondItem="EPp-37-bAi" secondAttribute="bottom" constant="12" id="dWT-yy-Jli"/>
+                        <constraint firstItem="bLc-Ny-WUT" firstAttribute="leading" secondItem="bLu-TX-Qv5" secondAttribute="leading" constant="32" id="jem-iI-Q7P"/>
+                        <constraint firstAttribute="trailing" secondItem="F2v-tP-Hge" secondAttribute="trailing" id="ofH-QB-Cd7"/>
+                        <constraint firstAttribute="width" secondItem="F2v-tP-Hge" secondAttribute="width" id="sty-Io-KtL"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bLu-TX-Qv5" secondAttribute="trailing" id="EZu-sV-7nc"/>
+                <constraint firstItem="bLu-TX-Qv5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NJe-fa-Onj"/>
+                <constraint firstItem="bLu-TX-Qv5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nTl-jZ-hvT"/>
+                <constraint firstAttribute="bottom" secondItem="bLu-TX-Qv5" secondAttribute="bottom" id="uVE-LP-bJi"/>
+            </constraints>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

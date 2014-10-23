@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Italic.ttf">
+            <string>OpenSans-Italic</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPDStoreDetailViewController">
+            <connections>
+                <outlet property="mapView" destination="f6X-cR-R8e" id="2tU-pe-FU0"/>
+                <outlet property="storeAddressLabel" destination="Iqi-XZ-X7e" id="07a-eq-13u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f6X-cR-R8e">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </mapView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNb-CK-C77">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Iqi-XZ-X7e">
+                            <rect key="frame" x="20" y="8" width="280" height="20"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.2784313725" green="0.61960784310000006" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Iqi-XZ-X7e" secondAttribute="bottom" constant="8" id="d54-Jz-zQH"/>
+                        <constraint firstItem="Iqi-XZ-X7e" firstAttribute="leading" secondItem="CNb-CK-C77" secondAttribute="leading" constant="20" id="fNH-mN-CwN"/>
+                        <constraint firstItem="Iqi-XZ-X7e" firstAttribute="top" secondItem="CNb-CK-C77" secondAttribute="top" constant="8" id="gZu-LZ-fDD"/>
+                        <constraint firstAttribute="trailing" secondItem="Iqi-XZ-X7e" secondAttribute="trailing" constant="20" id="hu5-iD-kKJ"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbv-Lw-mpp">
+                    <rect key="frame" x="20" y="524" width="280" height="36"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="5fS-6f-sbO"/>
+                        <constraint firstAttribute="height" constant="36" id="FYi-sX-0Gk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Get Directions">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="getDirections:" destination="-1" eventType="touchUpInside" id="fy0-xr-foT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N49-Tf-xW4">
+                    <rect key="frame" x="20" y="480" width="280" height="36"/>
+                    <color key="backgroundColor" red="0.2784313725" green="0.61960784310000006" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="E1w-Xj-pqL"/>
+                        <constraint firstAttribute="width" constant="280" id="jp1-Zj-mkf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Call Store">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="callStore:" destination="-1" eventType="touchUpInside" id="Fm4-3V-ix8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="N49-Tf-xW4" secondAttribute="centerX" id="1xL-Rn-n38"/>
+                <constraint firstItem="CNb-CK-C77" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8He-Ly-fiJ"/>
+                <constraint firstAttribute="bottom" secondItem="f6X-cR-R8e" secondAttribute="bottom" id="Knv-U9-ZQS"/>
+                <constraint firstItem="f6X-cR-R8e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NGe-yX-9rO"/>
+                <constraint firstItem="CNb-CK-C77" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ewn-dl-doz"/>
+                <constraint firstAttribute="trailing" secondItem="f6X-cR-R8e" secondAttribute="trailing" id="gPx-r0-rRj"/>
+                <constraint firstItem="Jbv-Lw-mpp" firstAttribute="top" secondItem="N49-Tf-xW4" secondAttribute="bottom" constant="8" id="k12-Yc-Oiz"/>
+                <constraint firstItem="f6X-cR-R8e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kc1-IJ-jZX"/>
+                <constraint firstAttribute="bottom" secondItem="Jbv-Lw-mpp" secondAttribute="bottom" constant="8" id="mdO-Sa-uuY"/>
+                <constraint firstAttribute="trailing" secondItem="CNb-CK-C77" secondAttribute="trailing" id="uQk-gf-FEl"/>
+                <constraint firstAttribute="centerX" secondItem="Jbv-Lw-mpp" secondAttribute="centerX" id="z6Q-sp-GmL"/>
+            </constraints>
+            <point key="canvasLocation" x="252" y="304"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

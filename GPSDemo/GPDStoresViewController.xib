@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPDStoresViewController">
+            <connections>
+                <outlet property="containerView" destination="jgY-oM-hvA" id="GAZ-am-Oiz"/>
+                <outlet property="listView" destination="M7d-fc-2nf" id="7FM-ay-dp9"/>
+                <outlet property="mapView" destination="ptz-Zx-CM8" id="Kt1-ZL-jD6"/>
+                <outlet property="searchBar" destination="60e-y5-Set" id="cQf-DR-clR"/>
+                <outlet property="spinner" destination="eXh-XF-sr4" id="Lke-vh-h34"/>
+                <outlet property="toggleButton" destination="7ul-Qn-L4k" id="Tyz-Bp-iwO"/>
+                <outlet property="toolBar" destination="HDl-wF-QYr" id="jt5-ye-DmT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgY-oM-hvA" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="44" width="320" height="460"/>
+                    <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ptz-Zx-CM8">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="kfm-GD-1fN"/>
+                            </connections>
+                        </mapView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M7d-fc-2nf">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="tPO-0I-64D"/>
+                                <outlet property="delegate" destination="-1" id="VAn-eZ-Ma9"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ptz-Zx-CM8" firstAttribute="leading" secondItem="jgY-oM-hvA" secondAttribute="leading" id="42I-Wk-a6d"/>
+                        <constraint firstAttribute="bottom" secondItem="M7d-fc-2nf" secondAttribute="bottom" id="F7Z-zS-Rb6"/>
+                        <constraint firstItem="ptz-Zx-CM8" firstAttribute="top" secondItem="jgY-oM-hvA" secondAttribute="top" id="Kqb-1w-KQa"/>
+                        <constraint firstAttribute="trailing" secondItem="M7d-fc-2nf" secondAttribute="trailing" id="MXZ-a1-HVu"/>
+                        <constraint firstItem="M7d-fc-2nf" firstAttribute="top" secondItem="jgY-oM-hvA" secondAttribute="top" id="YSF-nh-47d"/>
+                        <constraint firstAttribute="trailing" secondItem="ptz-Zx-CM8" secondAttribute="trailing" id="g0d-5W-JnJ"/>
+                        <constraint firstItem="M7d-fc-2nf" firstAttribute="leading" secondItem="jgY-oM-hvA" secondAttribute="leading" id="tpb-2p-nj8"/>
+                        <constraint firstAttribute="bottom" secondItem="ptz-Zx-CM8" secondAttribute="bottom" id="xoO-E1-5EA"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wey-ze-vvE">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" placeholder="Search Zip Code" translatesAutoresizingMaskIntoConstraints="NO" id="60e-y5-Set">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <color key="barTintColor" red="0.2784313725" green="0.61960784310000006" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="c6U-mt-CTc"/>
+                            </connections>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" red="0.2784313725" green="0.61960784310000006" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="60e-y5-Set" secondAttribute="bottom" id="36z-bk-dr7"/>
+                        <constraint firstAttribute="height" constant="44" id="gSU-Nx-AsI"/>
+                        <constraint firstAttribute="trailing" secondItem="60e-y5-Set" secondAttribute="trailing" id="k1o-GC-HQi"/>
+                        <constraint firstItem="60e-y5-Set" firstAttribute="leading" secondItem="wey-ze-vvE" secondAttribute="leading" id="zNm-WL-hrO"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eXh-XF-sr4">
+                    <rect key="frame" x="150" y="242" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wey-ze-vvE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8Lc-GS-Gpk"/>
+                <constraint firstItem="jgY-oM-hvA" firstAttribute="top" secondItem="wey-ze-vvE" secondAttribute="bottom" id="8c2-tZ-CiN"/>
+                <constraint firstAttribute="centerX" secondItem="eXh-XF-sr4" secondAttribute="centerX" id="DPg-5e-9xh"/>
+                <constraint firstItem="wey-ze-vvE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ex2-i7-uQj"/>
+                <constraint firstItem="jgY-oM-hvA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hj2-jI-aNw"/>
+                <constraint firstAttribute="trailing" secondItem="wey-ze-vvE" secondAttribute="trailing" id="Hw8-wq-gcZ"/>
+                <constraint firstAttribute="bottom" secondItem="jgY-oM-hvA" secondAttribute="bottom" id="lwo-dW-mJL"/>
+                <constraint firstAttribute="trailing" secondItem="jgY-oM-hvA" secondAttribute="trailing" id="tIS-42-oHc"/>
+                <constraint firstAttribute="centerY" secondItem="eXh-XF-sr4" secondAttribute="centerY" id="tWX-v3-52b"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+        </view>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="HDl-wF-QYr">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="X0f-YO-iSz"/>
+                <barButtonItem title="Cancel" id="A2X-YM-9xJ">
+                    <connections>
+                        <action selector="cancelSearch:" destination="-1" id="InX-ZL-Awi"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="jvs-nC-RcY"/>
+            </items>
+            <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+        </toolbar>
+        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7ul-Qn-L4k">
+            <rect key="frame" x="0.0" y="0.0" width="22" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" image="list">
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="toggleMapListViews" destination="-1" eventType="touchUpInside" id="GYb-c4-8p4"/>
+            </connections>
+            <point key="canvasLocation" x="496.5" y="76"/>
+        </button>
+    </objects>
+    <resources>
+        <image name="list" width="22" height="44"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
