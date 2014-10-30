@@ -22,6 +22,7 @@
 #import "GPDPromoViewController.h"
 #import "GPDPromoDetailViewController.h"
 #import "GPDMoreViewController.h"
+#import "GPDProfileViewController.h"
 
 @interface GPDAppDelegate ()
 
@@ -34,6 +35,7 @@
 @property (strong, nonatomic) GPDEventsViewController *eventsViewController;
 @property (strong, nonatomic) GPDPromoViewController *promoViewController;
 @property (strong, nonatomic) GPDMoreViewController *moreViewController;
+@property (strong, nonatomic) GPDProfileViewController *profileViewController;
 
 @property (strong, nonatomic) SCWebTrackingEventBatchSender *batchSender;
 
@@ -216,6 +218,7 @@
                                 self.browseViewController,
                                 self.storesViewController,
                                 self.eventsViewController,
+                                self.profileViewController,
                                 self.moreViewController,
                                 nil];
     return viewControllers;
@@ -268,6 +271,15 @@
         _promoViewController.title = @"Promos";
     }
     return _promoViewController;
+}
+
+- (GPDProfileViewController *)profileViewController
+{
+    if (!_profileViewController) {
+        _profileViewController = [GPDProfileViewController new];
+        _profileViewController.title = @"Profile";
+    }
+    return _profileViewController;
 }
 
 - (GPDMoreViewController *)moreViewController
