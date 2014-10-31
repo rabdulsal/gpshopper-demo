@@ -66,6 +66,19 @@
     self.window.backgroundColor = kGPDBlueColor;
     [self.window setRootViewController:rootController];
     [self.window makeKeyAndVisible];
+    
+    NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (nil != remoteNotif)
+    {
+        NSLog(@"We started with a Remote Notification of [%@]", remoteNotif);
+        [SCPushNotificationHandler handleRemoteNotification:remoteNotif delegate:self];
+    }
+    NSDictionary *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (nil != localNotif)
+    {
+        NSLog(@"We started with a Local Notification of [%@]", localNotif);
+        [SCPushNotificationHandler handleLocalNotification:localNotif delegate:self];
+    }
 
     return YES;
 }
