@@ -93,7 +93,15 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {}
 
-
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([@"config" caseInsensitiveCompare:[url host]] == NSOrderedSame)
+    {
+        [GPSSDKConfiguration updateConfigParameters:[url query]];
+    }
+    return YES;
+}
 
 #pragma mark Configuration
 
