@@ -96,11 +96,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    if ([@"config" caseInsensitiveCompare:[url host]] == NSOrderedSame)
-    {
-        [GPSSDKConfiguration updateConfigParameters:[url query]];
-    }
-    return YES;
+    return [GPSSDKConfiguration handleURL: url];
 }
 
 #pragma mark Configuration
