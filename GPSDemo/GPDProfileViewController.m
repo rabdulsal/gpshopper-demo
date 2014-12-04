@@ -10,14 +10,17 @@
 #import "GPDLoginViewController.h"
 
 @interface GPDProfileViewController ()
+{
+    SCProfile *profile;
+    SCSession *session;
+    SCRegistrationState *state;
+}
 
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *emailLabel;
 @property (strong, nonatomic) IBOutlet UIButton *loginLogoutButton;
 
-@property (strong, nonatomic) SCProfile *profile;
-@property (strong, nonatomic) SCSession *session;
 @end
 
 @implementation GPDProfileViewController
@@ -26,19 +29,16 @@
 @synthesize lastNameLabel;
 @synthesize emailLabel;
 @synthesize loginLogoutButton;
-@synthesize profile;
-@synthesize session;
+
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        NSString *requestURL = [NSString stringWithFormat:@"https://%@/mobile", [NSBundle standardClientHostName]];
-        [SCSession setRequestUrl:requestURL];
-        [SCProfile setRequestUrl:requestURL];
         
         profile = [SCProfile defaultProfile];
         session = [SCSession defaultSession];
+        state = [SCRegistrationState defaultState];
     }
     return self;
 }
@@ -46,23 +46,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [profile fetch];
-    [profile addObserver:self forKeyPath:@"fetchStatus" options:0 context:nil];
-    [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
     [[NSNotificationCenter defaultCenter] addObserverForName:@"scsession_updated" object:session queue:nil usingBlock:^(NSNotification *note) {
         if (!session.exists) {
             [loginLogoutButton setTitle:@"Login" forState:UIControlStateNormal];
             [profile clear];
+            [state clear];
             firstNameLabel.hidden = YES;
             lastNameLabel.hidden = YES;
             emailLabel.hidden = YES;
             firstNameLabel.text = nil;
             lastNameLabel.text = nil;
             emailLabel.text = nil;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have been logged out" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
         } else {
             [loginLogoutButton setTitle:@"Logout" forState:UIControlStateNormal];
         }
     }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (profile.fetched) {
+        firstNameLabel.hidden = NO;
+        lastNameLabel.hidden = NO;
+        emailLabel.hidden = NO;
+        firstNameLabel.text = profile.firstName;
+        lastNameLabel.text = profile.lastName;
+        emailLabel.text = profile.email;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,40 +94,6 @@
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"fetchStatus"]) {
-        switch (profile.fetchStatus) {
-            case SCProfileRemoteBusy:
-                
-                break;
-            case SCProfileRemoteFail:
-                [self showLogin];
-                break;
-            case SCProfileRemoteNone:
-                
-                break;
-            case SCProfileRemoteSuccess:
-                [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-                break;
-        }
-    } else if ([keyPath isEqualToString:@"updateStatus"]) {
-            switch (profile.fetchStatus) {
-                case SCProfileRemoteBusy:
-                    
-                    break;
-                case SCProfileRemoteFail:
-                    [self showLogin];
-                    break;
-                case SCProfileRemoteNone:
-                    
-                    break;
-                case SCProfileRemoteSuccess:
-                    [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-                    break;
-            }
-    }
-}
-
 - (void)showLogin {
     GPDLoginViewController *vc = [[GPDLoginViewController alloc] initWithNibName:@"GPDLoginViewController" bundle:nil];
     vc.title = @"Login";
@@ -119,15 +101,6 @@
     [self presentViewController:nc animated:YES completion:nil];
 }
 
-- (void)reloadData {
-    firstNameLabel.hidden = NO;
-    lastNameLabel.hidden = NO;
-    emailLabel.hidden = NO;
-    firstNameLabel.text = profile.firstName;
-    lastNameLabel.text = profile.lastName;
-    emailLabel.text = profile.email;
-    //[loginLogoutButton setTitle:@"Logout" forState:UIControlStateNormal];
-}
 /*
 #pragma mark - Navigation
 

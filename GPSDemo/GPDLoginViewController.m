@@ -10,11 +10,13 @@
 #import "GPDRegistrationViewController.h"
 
 @interface GPDLoginViewController ()
+{
+    SCRegistrationState *state;
+    SCProfile *profile;
+    SCSession *session;
+}
 
 
-@property (strong, nonatomic) SCRegistrationState *state;
-@property (strong, nonatomic) SCProfile *profile;
-@property (strong, nonatomic) SCSession *session;
 
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -25,10 +27,6 @@
 @end
 
 @implementation GPDLoginViewController
-@synthesize state;
-@synthesize session;
-@synthesize profile;
-
 @synthesize usernameTextField;
 @synthesize passwordTextField;
 @synthesize spinner;
@@ -53,19 +51,34 @@
     self.title = @"Login";
     
     [state addObserver:self forKeyPath:@"status" options:0 context:nil];
-    [profile addObserver:self forKeyPath:@"fetchStatus" options:0 context:nil];
-    [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserverForName:@"scsession_updated" object:session queue:nil usingBlock:^(NSNotification *note) {
-        if (session.exists) {
-            [profile fetch];
-        } else if (session.createFailed) {
-            
-        } else if (session.destroyFailed) {
-            
-        }
-    }];
+}
 
+- (void)sessionUpdated {
+    if (session.exists) {
+        [profile addObserver:self forKeyPath:@"fetchStatus" options:0 context:nil];
+        [profile fetch];
+    } else if (session.createFailed) {
+        
+    } else if (session.destroyFailed) {
+        
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
+}
+
+- (void)dealloc {
+    @try {
+        [state removeObserver:self forKeyPath:@"status"];
+    }
+    @catch (NSException *exception) {
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,11 +108,18 @@
 }
 
 - (IBAction)createAccountButtonPressed:(id)sender {
+    @try {
+        [profile removeObserver:self forKeyPath:@"fetchStatus"];
+    }
+    @catch (NSException *exception) {
+        
+    }
     GPDRegistrationViewController *vc = [[GPDRegistrationViewController alloc] initWithNibName:@"GPDRegistrationViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"%@ %@", object, keyPath);
     if ([keyPath isEqualToString:@"status"]) {
         switch (state.status) {
             case SCRegStatusUnregistered:
@@ -112,7 +132,7 @@
                 
                 break;
             case SCRegStatusSuccess:
-                [self login];
+                [session create];
                 break;
         }
     } else if ([keyPath isEqualToString:@"fetchStatus"]) {
@@ -127,24 +147,35 @@
                 
                 break;
             case SCProfileRemoteSuccess:
-                [self performSelectorOnMainThread:@selector(checkPassword) withObject:nil waitUntilDone:NO];
+                [self checkPassword];
+                @try {
+                    [profile removeObserver:self forKeyPath:@"fetchStatus"];
+                }
+                @catch (NSException *exception) {
+                    
+                }
                 break;
         }
     }
-}
-
-- (void)login {
-    [session create];
     
 }
 
 - (void)checkPassword {
     spinner.hidden = YES;
-    if (![passwordTextField.text isEqualToString:[profile.supplemental objectForKey:@"password"]]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Email or password incorrect" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    if ([passwordTextField.text isEqualToString:[profile.supplemental objectForKey:@"password"]]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have been logged in" message:@"" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
-    } else {
         [self dismissViewControllerAnimated:YES completion:nil];
+    } else if (![passwordTextField.text isEqualToString:[profile.supplemental objectForKey:@"password"]]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Email or password incorrect"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+        [state clear];
+        [profile clear];
+        [session destroy];
     }
 }
 

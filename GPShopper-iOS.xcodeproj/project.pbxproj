@@ -85,6 +85,13 @@
 		1AFFEED8192403CE00340EE5 /* GPDSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFEED6192403CE00340EE5 /* GPDSearchViewController.xib */; };
 		1AFFEEDD1924186600340EE5 /* GPDPDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFFEEDB1924186600340EE5 /* GPDPDPViewController.m */; };
 		1AFFEEDE1924186600340EE5 /* GPDPDPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFEEDC1924186600340EE5 /* GPDPDPViewController.xib */; };
+		C01C5C941A00074200A4EF98 /* GPShopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01C5C931A00074200A4EF98 /* GPShopper.framework */; };
+		C032A2B71A002C7600088FFF /* GPDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C032A2B51A002C7600088FFF /* GPDProfileViewController.m */; };
+		C032A2B81A002C7600088FFF /* GPDProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C032A2B61A002C7600088FFF /* GPDProfileViewController.xib */; };
+		C032A2BC1A00328500088FFF /* GPDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C032A2BA1A00328500088FFF /* GPDLoginViewController.m */; };
+		C032A2BD1A00328500088FFF /* GPDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C032A2BB1A00328500088FFF /* GPDLoginViewController.xib */; };
+		C032A2C11A0041A200088FFF /* GPDRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C032A2BF1A0041A200088FFF /* GPDRegistrationViewController.m */; };
+		C032A2C21A0041A200088FFF /* GPDRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C032A2C01A0041A200088FFF /* GPDRegistrationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,6 +201,16 @@
 		1AFFEEDA1924186600340EE5 /* GPDPDPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDPDPViewController.h; sourceTree = "<group>"; };
 		1AFFEEDB1924186600340EE5 /* GPDPDPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDPDPViewController.m; sourceTree = "<group>"; };
 		1AFFEEDC1924186600340EE5 /* GPDPDPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDPDPViewController.xib; sourceTree = "<group>"; };
+		C01C5C931A00074200A4EF98 /* GPShopper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPShopper.framework; sourceTree = "<group>"; };
+		C032A2B41A002C7600088FFF /* GPDProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDProfileViewController.h; sourceTree = "<group>"; };
+		C032A2B51A002C7600088FFF /* GPDProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDProfileViewController.m; sourceTree = "<group>"; };
+		C032A2B61A002C7600088FFF /* GPDProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDProfileViewController.xib; sourceTree = "<group>"; };
+		C032A2B91A00328500088FFF /* GPDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDLoginViewController.h; sourceTree = "<group>"; };
+		C032A2BA1A00328500088FFF /* GPDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDLoginViewController.m; sourceTree = "<group>"; };
+		C032A2BB1A00328500088FFF /* GPDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDLoginViewController.xib; sourceTree = "<group>"; };
+		C032A2BE1A0041A200088FFF /* GPDRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDRegistrationViewController.h; sourceTree = "<group>"; };
+		C032A2BF1A0041A200088FFF /* GPDRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDRegistrationViewController.m; sourceTree = "<group>"; };
+		C032A2C01A0041A200088FFF /* GPDRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDRegistrationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +229,7 @@
 				1A74D363191F11C300CBD8D7 /* MapKit.framework in Frameworks */,
 				1A080AC41914277500858C66 /* UIKit.framework in Frameworks */,
 				1A080AC01914277500858C66 /* Foundation.framework in Frameworks */,
+				C01C5C941A00074200A4EF98 /* GPShopper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +259,7 @@
 		1A080ABE1914277500858C66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C01C5C931A00074200A4EF98 /* GPShopper.framework */,
 				1AD79DBA19EC893000E485AB /* EventKit.framework */,
 				1AD79DBB19EC893000E485AB /* EventKitUI.framework */,
 				1A95B6A219E721AA0078028E /* CoreBluetooth.framework */,
@@ -265,6 +284,7 @@
 				1A080AF319142EE400858C66 /* GPDConstants.h */,
 				1AF41307191EC8AD0044CAA8 /* GPDViewController.h */,
 				1AF41308191EC8AD0044CAA8 /* GPDViewController.m */,
+				C032A2A51A0027AF00088FFF /* REGISTRATION */,
 				1AF41305191EC59C0044CAA8 /* SideMenu */,
 				1AF41306191EC5E90044CAA8 /* HOME */,
 				1A74D35B191F110F00CBD8D7 /* BROWSE */,
@@ -458,6 +478,22 @@
 			name = PDP;
 			sourceTree = "<group>";
 		};
+		C032A2A51A0027AF00088FFF /* REGISTRATION */ = {
+			isa = PBXGroup;
+			children = (
+				C032A2B41A002C7600088FFF /* GPDProfileViewController.h */,
+				C032A2B51A002C7600088FFF /* GPDProfileViewController.m */,
+				C032A2B61A002C7600088FFF /* GPDProfileViewController.xib */,
+				C032A2B91A00328500088FFF /* GPDLoginViewController.h */,
+				C032A2BA1A00328500088FFF /* GPDLoginViewController.m */,
+				C032A2BB1A00328500088FFF /* GPDLoginViewController.xib */,
+				C032A2BE1A0041A200088FFF /* GPDRegistrationViewController.h */,
+				C032A2BF1A0041A200088FFF /* GPDRegistrationViewController.m */,
+				C032A2C01A0041A200088FFF /* GPDRegistrationViewController.xib */,
+			);
+			name = REGISTRATION;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -489,6 +525,7 @@
 				ORGANIZATIONNAME = "James Lee";
 				TargetAttributes = {
 					1A080ABB1914277500858C66 = {
+						DevelopmentTeam = 776ZDTBFVK;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -548,6 +585,7 @@
 				1A74D353191EF56800CBD8D7 /* GPDBrowseViewController.xib in Resources */,
 				1A95B6B619E840350078028E /* GPDMoreViewController.xib in Resources */,
 				1A95B6C619E86F320078028E /* GPDWebViewController.xib in Resources */,
+				C032A2B81A002C7600088FFF /* GPDProfileViewController.xib in Resources */,
 				1A1F52C819217A6E002AFCB3 /* menu_cart@2x.png in Resources */,
 				1A74D370191FBD1C00CBD8D7 /* menu_stores.png in Resources */,
 				1A74D36C191FBD1C00CBD8D7 /* menu_browse.png in Resources */,
@@ -558,8 +596,10 @@
 				1A9D6291191EB61A0069D303 /* OpenSans-Light.ttf in Resources */,
 				1A20B2A119E8A05F00EF404C /* GPDStoreDetailViewController.xib in Resources */,
 				1A9D6293191EB61A0069D303 /* OpenSans-Regular.ttf in Resources */,
+				C032A2C21A0041A200088FFF /* GPDRegistrationViewController.xib in Resources */,
 				1A1F52C719217A6E002AFCB3 /* menu_cart.png in Resources */,
 				1A9D6294191EB61A0069D303 /* OpenSans-Semibold.ttf in Resources */,
+				C032A2BD1A00328500088FFF /* GPDLoginViewController.xib in Resources */,
 				1A74D365191F24B500CBD8D7 /* GPDBrowseNoResultsCell.xib in Resources */,
 				1A1F52CB19217AFD002AFCB3 /* map_toggle.png in Resources */,
 				1A9D6287191EB61A0069D303 /* InfoPlist.strings in Resources */,
@@ -575,15 +615,18 @@
 			files = (
 				1A95B6BB19E846AE0078028E /* GPDProductCell.m in Sources */,
 				1AF41301191EC5940044CAA8 /* GPDSideMenuViewController.m in Sources */,
+				C032A2BC1A00328500088FFF /* GPDLoginViewController.m in Sources */,
 				1A95B6C519E86F320078028E /* GPDWebViewController.m in Sources */,
 				1A74D35F191F112200CBD8D7 /* GPDStoresViewController.m in Sources */,
 				1A95B6AC19E73B610078028E /* GPDImageFetcher.m in Sources */,
 				1A95B6C019E84A690078028E /* GPDEventCell.m in Sources */,
 				1AD79DCE19EDC49400E485AB /* TWTSideMenuViewController.m in Sources */,
 				1A20B2A519E8BCAC00EF404C /* GPDCollectionViewCell.m in Sources */,
+				C032A2B71A002C7600088FFF /* GPDProfileViewController.m in Sources */,
 				1A79E9B3191ED4B500075478 /* GPDSideMenuCell.m in Sources */,
 				1A20B2A019E8A05F00EF404C /* GPDStoreDetailViewController.m in Sources */,
 				1A95B69F19E71EFD0078028E /* GPDEventsViewController.m in Sources */,
+				C032A2C11A0041A200088FFF /* GPDRegistrationViewController.m in Sources */,
 				1A080AF119142E4E00858C66 /* GPDHomeViewController.m in Sources */,
 				1AF41309191EC8AD0044CAA8 /* GPDViewController.m in Sources */,
 				1A9D628A191EB61A0069D303 /* main.m in Sources */,
@@ -689,8 +732,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Maya Muller (8FK54JFFP4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maya Muller (8FK54JFFP4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -701,7 +744,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "GPShopper-iOS";
-				PROVISIONING_PROFILE = "eb85fc29-f1d9-4bf4-b5d0-70649c54fcf5";
+				PROVISIONING_PROFILE = "140a1bd8-e240-4c2d-8236-b340349212db";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -723,7 +766,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "GPShopper-iOS";
-				PROVISIONING_PROFILE = "eb85fc29-f1d9-4bf4-b5d0-70649c54fcf5";
+				PROVISIONING_PROFILE = "140a1bd8-e240-4c2d-8236-b340349212db";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

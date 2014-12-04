@@ -9,10 +9,13 @@
 #import "GPDRegistrationViewController.h"
 
 @interface GPDRegistrationViewController () <UITextFieldDelegate>
+{
+    SCRegistrationState *state;
+    SCProfile *profile;
+    SCSession *session;
+}
 
-@property (strong, nonatomic) SCRegistrationState *state;
-@property (strong, nonatomic) SCProfile *profile;
-@property (strong, nonatomic) SCSession *session;
+
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
@@ -40,9 +43,6 @@
 @synthesize toolbar;
 @synthesize scrollView;
 @synthesize activeField;
-@synthesize state;
-@synthesize session;
-@synthesize profile;
 @synthesize spinner;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -78,7 +78,6 @@
     [self registerForKeyboardNotifications];
     
     [state addObserver:self forKeyPath:@"status" options:0 context:nil];
-    [profile addObserver:self forKeyPath:@"fetchStatus" options:0 context:nil];
     [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserverForName:@"scsession_updated" object:session queue:nil usingBlock:^(NSNotification *note) {
@@ -91,6 +90,19 @@
         }
         
     }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
+    @try {
+        [state removeObserver:self forKeyPath:@"status"];
+        [profile removeObserver:self forKeyPath:@"updateStatus"];
+    }
+    @catch (NSException *exception) {
+        
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -154,25 +166,10 @@
                 [self registerAccount];
                 break;
         }
-    } else if ([keyPath isEqualToString:@"fetchStatus"]) {
-        switch (profile.fetchStatus) {
-            case SCProfileRemoteBusy:
-                
-                break;
-            case SCProfileRemoteFail:
-                
-                break;
-            case SCProfileRemoteNone:
-                
-                break;
-            case SCProfileRemoteSuccess:
-                spinner.hidden = YES;
-                break;
-        }
     } else if ([keyPath isEqualToString:@"updateStatus"]) {
         switch (profile.updateStatus) {
             case SCProfileRemoteSuccess:
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self createAccount];
                 break;
             case SCProfileRemoteNone:
                 break;
@@ -186,6 +183,12 @@
 
 - (void)registerAccount {
     [session create];
+}
+
+- (void)createAccount {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have been registered" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
