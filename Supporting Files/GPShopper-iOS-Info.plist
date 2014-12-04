@@ -20,6 +20,17 @@
 	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>GPShopper147</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.1</string>
 	<key>GPSSDKDeveloperKey</key>
@@ -43,11 +54,6 @@
 		<string>OpenSans-SemiboldItalic.ttf</string>
 		<string>OpenSans-Bold.ttf</string>
 		<string>OpenSans-BoldItalic.ttf</string>
-	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>bluetooth-central</string>
-		<string>remote-notification</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

@@ -68,6 +68,19 @@
     self.window.backgroundColor = kGPDBlueColor;
     [self.window setRootViewController:rootController];
     [self.window makeKeyAndVisible];
+    
+    NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (nil != remoteNotif)
+    {
+        NSLog(@"We started with a Remote Notification of [%@]", remoteNotif);
+        [SCPushNotificationHandler handleRemoteNotification:remoteNotif delegate:self];
+    }
+    NSDictionary *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (nil != localNotif)
+    {
+        NSLog(@"We started with a Local Notification of [%@]", localNotif);
+        [SCPushNotificationHandler handleLocalNotification:localNotif delegate:self];
+    }
 
     return YES;
 }
@@ -82,7 +95,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {}
 
-
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [GPSSDKConfiguration handleURL: url];
+}
 
 #pragma mark Configuration
 
@@ -173,6 +190,18 @@
     
 }
 
+-(void)bannerGotoCustomAction: (NSString *)scriptAction
+{
+    
+}
+
+
+#pragma mark - GPSSDKConfigurationDelegate
+
+-(void)locationUpdated:(SCGeoLocation *)location
+{
+    NSLog(@"Location was updated to %lf, %lf", location.latlon.latitude, location.latlon.longitude);
+}
 
 #pragma mark - Delegate methods: SCBeaconDeviceManagerDelegate  // All of the methods in the protocol are optional.
 
