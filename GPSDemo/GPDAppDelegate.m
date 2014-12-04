@@ -188,6 +188,18 @@
     
 }
 
+-(void)bannerGotoCustomAction: (NSString *)scriptAction
+{
+    
+}
+
+
+#pragma mark - GPSSDKConfigurationDelegate
+
+-(void)locationUpdated:(SCGeoLocation *)location
+{
+    NSLog(@"Location was updated to %lf, %lf", location.latlon.latitude, location.latlon.longitude);
+}
 
 #pragma mark - Delegate methods: SCBeaconDeviceManagerDelegate  // All of the methods in the protocol are optional.
 
