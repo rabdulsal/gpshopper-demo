@@ -46,27 +46,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"scsession_updated" object:session queue:nil usingBlock:^(NSNotification *note) {
-        if (!session.exists) {
-            [loginLogoutButton setTitle:@"Login" forState:UIControlStateNormal];
-            [profile clear];
-            [state clear];
-            firstNameLabel.hidden = YES;
-            lastNameLabel.hidden = YES;
-            emailLabel.hidden = YES;
-            firstNameLabel.text = nil;
-            lastNameLabel.text = nil;
-            emailLabel.text = nil;
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have been logged out" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alert show];
-        } else {
-            [loginLogoutButton setTitle:@"Logout" forState:UIControlStateNormal];
-        }
-    }];
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,7 +57,35 @@
         firstNameLabel.text = profile.firstName;
         lastNameLabel.text = profile.lastName;
         emailLabel.text = profile.email;
+        [loginLogoutButton setTitle:@"Logout" forState:UIControlStateNormal];
+    } else {
+        [loginLogoutButton setTitle:@"Login" forState:UIControlStateNormal];
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+- (void)sessionUpdated {
+    if (!session.exists) {
+        
+        [profile clear];
+        [state clear];
+        firstNameLabel.hidden = YES;
+        lastNameLabel.hidden = YES;
+        emailLabel.hidden = YES;
+        firstNameLabel.text = nil;
+        lastNameLabel.text = nil;
+        emailLabel.text = nil;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been logged out" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    } else {
+        [loginLogoutButton setTitle:@"Logout" forState:UIControlStateNormal];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +96,7 @@
 - (IBAction)loginLogoutButtonPressed:(id)sender {
     if (session.exists) {
         [session destroy];
+        [loginLogoutButton setTitle:@"Login" forState:UIControlStateNormal];
     } else {
         [self showLogin];
     }
@@ -100,15 +108,5 @@
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nc animated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

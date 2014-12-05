@@ -16,20 +16,13 @@
     SCSession *session;
 }
 
-
-
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
-
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
 @implementation GPDLoginViewController
 @synthesize usernameTextField;
-@synthesize passwordTextField;
-@synthesize spinner;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,8 +42,6 @@
     
     self.navigationItem.leftBarButtonItem = self.cancelButton;
     self.title = @"Login";
-    
-    [state addObserver:self forKeyPath:@"status" options:0 context:nil];
 }
 
 - (void)sessionUpdated {
@@ -62,23 +53,16 @@
     } else if (session.destroyFailed) {
         
     }
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
-}
-
-- (void)dealloc {
-    @try {
-        [state removeObserver:self forKeyPath:@"status"];
-    }
-    @catch (NSException *exception) {
-        
-    }
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,25 +79,19 @@
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$" options:(NSRegularExpressionCaseInsensitive) error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:usernameTextField.text options:0 range:NSMakeRange(0, [usernameTextField.text length])];
     
-    if  ([usernameTextField.text isEqualToString:@""] || [passwordTextField.text isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must enter an email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    if  ([usernameTextField.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You must enter an email" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     } else if (!match) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a valid email." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please enter a valid email." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     } else {
-        spinner.hidden = NO;
+        [state addObserver:self forKeyPath:@"status" options:0 context:nil];
         [state loginWithIdentifier:usernameTextField.text zipcode:@""];
     }
 }
 
 - (IBAction)createAccountButtonPressed:(id)sender {
-    @try {
-        [profile removeObserver:self forKeyPath:@"fetchStatus"];
-    }
-    @catch (NSException *exception) {
-        
-    }
     GPDRegistrationViewController *vc = [[GPDRegistrationViewController alloc] initWithNibName:@"GPDRegistrationViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -121,47 +99,26 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     NSLog(@"%@ %@", object, keyPath);
     if ([keyPath isEqualToString:@"status"]) {
-        switch (state.status) {
-            case SCRegStatusUnregistered:
-                
-                break;
-            case SCRegStatusBusy:
-                
-                break;
-            case SCRegStatusFail:
-                
-                break;
-            case SCRegStatusSuccess:
-                [session create];
-                break;
+        if (state.status == SCRegStatusSuccess) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
+            [session create];
+            [state removeObserver:self forKeyPath:@"status"];
         }
     } else if ([keyPath isEqualToString:@"fetchStatus"]) {
-        switch (profile.fetchStatus) {
-            case SCProfileRemoteBusy:
-                
-                break;
-            case SCProfileRemoteFail:
-                
-                break;
-            case SCProfileRemoteNone:
-                
-                break;
-            case SCProfileRemoteSuccess:
+        if (profile.fetchStatus == SCProfileRemoteSuccess) {
+            if (!profile.firstName) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You don't have an account" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                [profile removeObserver:self forKeyPath:@"fetchStatus"];
+                [session destroy];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been logged in" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
                 [self dismissViewControllerAnimated:YES completion:nil];
-                break;
+                [profile removeObserver:self forKeyPath:@"fetchStatus"];
+            }
         }
     }
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

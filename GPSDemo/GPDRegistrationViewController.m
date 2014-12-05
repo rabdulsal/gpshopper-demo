@@ -20,8 +20,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordConfirmationTextField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *previousButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -38,8 +36,6 @@
 @synthesize lastNameTextField;
 @synthesize emailTextField;
 @synthesize phoneTextField;
-@synthesize passwordTextField;
-@synthesize passwordConfirmationTextField;
 @synthesize toolbar;
 @synthesize scrollView;
 @synthesize activeField;
@@ -51,8 +47,7 @@
     if (self) {
         state = [SCRegistrationState defaultState];
         profile = [SCProfile defaultProfile];
-        session = [[SCSession alloc] initWithRegState:state];
-        [SCSession setRequestUrl:[NSBundle standardClientHostName]];
+        session = [SCSession defaultSession];
     }
     return self;
 }
@@ -65,44 +60,35 @@
     lastNameTextField.inputAccessoryView = toolbar;
     emailTextField.inputAccessoryView = toolbar;
     phoneTextField.inputAccessoryView = toolbar;
-    passwordTextField.inputAccessoryView = toolbar;
-    passwordConfirmationTextField.inputAccessoryView = toolbar;
     
     firstNameTextField.delegate = self;
     lastNameTextField.delegate = self;
     emailTextField.delegate = self;
     phoneTextField.delegate = self;
-    passwordTextField.delegate = self;
-    passwordConfirmationTextField.delegate = self;
     
     [self registerForKeyboardNotifications];
-    
-    [state addObserver:self forKeyPath:@"status" options:0 context:nil];
-    [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserverForName:@"scsession_updated" object:session queue:nil usingBlock:^(NSNotification *note) {
-        if (session.exists) {
-            [profile sendUpdates];
-        } else if (session.createFailed) {
-            
-        } else if (session.destroyFailed) {
-            
-        }
-        
-    }];
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
-    @try {
-        [state removeObserver:self forKeyPath:@"status"];
-        [profile removeObserver:self forKeyPath:@"updateStatus"];
-    }
-    @catch (NSException *exception) {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [state addObserver:self forKeyPath:@"status" options:0 context:nil];
+    [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+- (void)sessionUpdated {
+    if (session.exists) {
+        [profile sendUpdates];
+    } else if (session.createFailed) {
+        
+    } else if (session.destroyFailed) {
         
     }
-    
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,16 +103,16 @@
         [lastNameTextField.text isEqual:@""] ||
         [emailTextField.text isEqual:@""] ||
         [phoneTextField.text isEqual:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                         message:@"You must enter all fields."
-                                                       delegate:self
+                                                       delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil, nil];
         [alert show];
     } else if (!match) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                         message:@"Please enter a valid email."
-                                                       delegate:self
+                                                       delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil, nil];
         [alert show];
@@ -142,41 +128,20 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"status"]) {
-        switch (state.status) {
-            case SCRegStatusUnregistered:
-                
-                break;
-            case SCRegStatusBusy:
-                
-                break;
-            case SCRegStatusFail:
-                
-                break;
-            case SCRegStatusSuccess:
-                [self registerAccount];
-                break;
+        if (state.status == SCRegStatusSuccess) {
+            [session create];
+            [state removeObserver:self forKeyPath:@"status"];
         }
     } else if ([keyPath isEqualToString:@"updateStatus"]) {
-        switch (profile.updateStatus) {
-            case SCProfileRemoteSuccess:
-                [self createAccount];
-                break;
-            case SCProfileRemoteNone:
-                break;
-            case SCProfileRemoteFail:
-                break;
-            case SCProfileRemoteBusy:
-                break;
+        if (profile.updateStatus == SCProfileRemoteSuccess) {
+            [self createAccount];
+            [profile removeObserver:self forKeyPath:@"updateStatus"];
         }
     }
 }
 
-- (void)registerAccount {
-    [session create];
-}
-
 - (void)createAccount {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have been registered" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been registered" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -230,8 +195,6 @@
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
     
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your app might not need or want this behavior.
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
     if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
