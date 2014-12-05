@@ -96,7 +96,7 @@
     NSTextCheckingResult *match = [regex firstMatchInString:usernameTextField.text options:0 range:NSMakeRange(0, [usernameTextField.text length])];
     
     if  ([usernameTextField.text isEqualToString:@""] || [passwordTextField.text isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must enter an email and password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must enter an email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     } else if (!match) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a valid email." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -147,36 +147,11 @@
                 
                 break;
             case SCProfileRemoteSuccess:
-                [self checkPassword];
-                @try {
-                    [profile removeObserver:self forKeyPath:@"fetchStatus"];
-                }
-                @catch (NSException *exception) {
-                    
-                }
+                [self dismissViewControllerAnimated:YES completion:nil];
                 break;
         }
     }
     
-}
-
-- (void)checkPassword {
-    spinner.hidden = YES;
-    if ([passwordTextField.text isEqualToString:[profile.supplemental objectForKey:@"password"]]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have been logged in" message:@"" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else if (![passwordTextField.text isEqualToString:[profile.supplemental objectForKey:@"password"]]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Email or password incorrect"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-        [state clear];
-        [profile clear];
-        [session destroy];
-    }
 }
 
 /*

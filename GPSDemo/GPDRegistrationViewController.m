@@ -116,9 +116,7 @@
     if ([firstNameTextField.text  isEqual: @""] ||
         [lastNameTextField.text isEqual:@""] ||
         [emailTextField.text isEqual:@""] ||
-        [phoneTextField.text isEqual:@""] ||
-        [passwordTextField.text isEqual:@""] ||
-        [passwordConfirmationTextField isEqual:@""]) {
+        [phoneTextField.text isEqual:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:@"You must enter all fields."
                                                        delegate:self
@@ -132,19 +130,11 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil, nil];
         [alert show];
-    } else if (![passwordTextField.text isEqual:passwordConfirmationTextField.text]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Passwords must match."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
     } else {
         [profile stageUpdatedFirstName:firstNameTextField.text];
         [profile stageUpdatedLastName:lastNameTextField.text];
         [profile stageUpdatedEmail:emailTextField.text];
         [profile stageSupplementalValue:phoneTextField.text forKey:@"phone"];
-        [profile stageSupplementalValue:passwordTextField.text forKey:@"password"];
         [state loginWithIdentifier:emailTextField.text zipcode:@""];
         
     }
@@ -193,6 +183,30 @@
 
 - (IBAction)doneButtonPressed:(id)sender {
     [self.view endEditing:YES];
+}
+
+- (IBAction)previousButtonPressed:(id)sender {
+    NSInteger tag = activeField.tag - 1;
+    
+    UITextField *textField = (UITextField *)[self.view viewWithTag:tag];
+    
+    if (textField) {
+        [textField becomeFirstResponder];
+        activeField = textField;
+        [self.scrollView scrollRectToVisible:activeField.frame animated:YES];
+    }
+}
+
+- (IBAction)nextButtonPressed:(id)sender {
+    NSInteger tag = activeField.tag + 1;
+    
+    UITextField *textField = (UITextField *)[self.view viewWithTag:tag];
+    
+    if (textField) {
+        [textField becomeFirstResponder];
+        activeField = textField;
+        [self.scrollView scrollRectToVisible:activeField.frame animated:YES];
+    }
 }
 
 - (void)registerForKeyboardNotifications

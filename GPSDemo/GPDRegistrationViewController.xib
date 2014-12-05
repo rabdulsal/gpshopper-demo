@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPDRegistrationViewController">
@@ -12,8 +12,6 @@
                 <outlet property="firstNameTextField" destination="6jL-zL-3nc" id="F7q-wR-lxs"/>
                 <outlet property="lastNameTextField" destination="wBY-Zf-heD" id="fh2-fx-SdN"/>
                 <outlet property="nextButton" destination="aKS-O9-ZA4" id="qqI-Sw-EX8"/>
-                <outlet property="passwordConfirmationTextField" destination="hOl-pb-ACk" id="o4q-lf-DHj"/>
-                <outlet property="passwordTextField" destination="Lib-7R-w2K" id="nLw-Nt-36C"/>
                 <outlet property="phoneTextField" destination="KMm-Ds-m3S" id="IWE-Jy-Fp1"/>
                 <outlet property="previousButton" destination="fSo-7X-YGJ" id="v6f-Bw-Vsb"/>
                 <outlet property="scrollView" destination="VJd-mE-TJi" id="ySo-x3-LMV"/>
@@ -27,10 +25,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJd-mE-TJi">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJd-mE-TJi">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-zL-3nc">
+                        <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-zL-3nc">
                             <rect key="frame" x="8" y="37" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -41,7 +39,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBY-Zf-heD">
+                        <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBY-Zf-heD">
                             <rect key="frame" x="8" y="120" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -52,7 +50,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-o5-Shy">
+                        <textField opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-o5-Shy">
                             <rect key="frame" x="8" y="207" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -63,7 +61,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMm-Ds-m3S">
+                        <textField opaque="NO" clipsSubviews="YES" tag="104" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMm-Ds-m3S">
                             <rect key="frame" x="8" y="288" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -74,30 +72,11 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lib-7R-w2K">
-                            <rect key="frame" x="8" y="374" width="304" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                        </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDi-CI-Eo7">
-                            <rect key="frame" x="8" y="345" width="76" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hOl-pb-ACk">
-                            <rect key="frame" x="8" y="459" width="304" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                        </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password Confirmation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFi-pU-omF">
-                            <rect key="frame" x="8" y="430" width="180" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tYf-tq-HKC">
+                            <rect key="frame" x="150" y="169" width="20" height="20"/>
+                        </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkF-6f-DtY">
-                            <rect key="frame" x="8" y="507" width="304" height="44"/>
+                            <rect key="frame" x="8" y="347" width="304" height="44"/>
                             <color key="backgroundColor" red="0.2012328598" green="0.55732810880000005" blue="0.88605737429999998" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Register">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,25 +86,17 @@
                                 <action selector="registerButtonPressed:" destination="-1" eventType="touchUpInside" id="rgM-So-Q0g"/>
                             </connections>
                         </button>
-                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tYf-tq-HKC">
-                            <rect key="frame" x="150" y="169" width="20" height="20"/>
-                        </activityIndicatorView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="hOl-pb-ACk" secondAttribute="trailing" constant="8" id="077-4n-Ccp"/>
                         <constraint firstItem="KMm-Ds-m3S" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="5zI-cV-mOy"/>
                         <constraint firstAttribute="trailing" secondItem="VkF-6f-DtY" secondAttribute="trailing" constant="8" id="8fE-Ed-jeG"/>
-                        <constraint firstAttribute="trailing" secondItem="Lib-7R-w2K" secondAttribute="trailing" constant="8" id="8xO-CM-zM3"/>
                         <constraint firstItem="6jL-zL-3nc" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="HAF-jZ-Cfe"/>
                         <constraint firstItem="VRi-o5-Shy" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="J4k-ex-v1a"/>
                         <constraint firstItem="VkF-6f-DtY" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="SJc-dA-dzl"/>
                         <constraint firstItem="wBY-Zf-heD" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="VGv-jL-Ahj"/>
-                        <constraint firstItem="Lib-7R-w2K" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="X7d-dJ-xTq"/>
                         <constraint firstAttribute="trailing" secondItem="KMm-Ds-m3S" secondAttribute="trailing" constant="8" id="b4H-bm-Hdy"/>
-                        <constraint firstItem="hOl-pb-ACk" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="ekD-AK-FV7"/>
                         <constraint firstAttribute="trailing" secondItem="VRi-o5-Shy" secondAttribute="trailing" constant="8" id="nrE-I0-Sb2"/>
                         <constraint firstAttribute="trailing" secondItem="6jL-zL-3nc" secondAttribute="trailing" constant="8" id="oqf-cM-Cso"/>
-                        <constraint firstAttribute="bottom" secondItem="VkF-6f-DtY" secondAttribute="bottom" constant="20" id="pPr-uL-rJV"/>
                         <constraint firstAttribute="centerX" secondItem="tYf-tq-HKC" secondAttribute="centerX" id="ta2-6q-eyB"/>
                         <constraint firstAttribute="trailing" secondItem="wBY-Zf-heD" secondAttribute="trailing" constant="8" id="ySN-wp-Sqg"/>
                     </constraints>
@@ -138,14 +109,22 @@
                 <constraint firstItem="VJd-mE-TJi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ujf-Lb-POG"/>
                 <constraint firstItem="VJd-mE-TJi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fwN-31-Ol2"/>
             </constraints>
-            <point key="canvasLocation" x="478" y="274"/>
+            <point key="canvasLocation" x="450" y="393"/>
         </view>
         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="qb7-4b-hmp">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <items>
-                <barButtonItem title="previous" id="fSo-7X-YGJ"/>
-                <barButtonItem title="next" id="aKS-O9-ZA4"/>
+                <barButtonItem title="Previous" id="fSo-7X-YGJ">
+                    <connections>
+                        <action selector="previousButtonPressed:" destination="-1" id="ydx-6r-dqY"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Next" id="aKS-O9-ZA4">
+                    <connections>
+                        <action selector="nextButtonPressed:" destination="-1" id="09H-dX-S0G"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem title="Item" systemItem="flexibleSpace" id="0LL-WH-jIY"/>
                 <barButtonItem systemItem="done" id="Thy-8Z-VsQ">
                     <connections>
