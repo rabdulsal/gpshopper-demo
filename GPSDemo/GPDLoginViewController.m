@@ -8,6 +8,7 @@
 
 #import "GPDLoginViewController.h"
 #import "GPDRegistrationViewController.h"
+#import <GPShopper/GPShopper.h>
 
 @interface GPDLoginViewController ()
 {
@@ -18,11 +19,13 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loginSpinner;
 
 @end
 
 @implementation GPDLoginViewController
 @synthesize usernameTextField;
+@synthesize loginSpinner;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,21 +51,8 @@
     if (session.exists) {
         [profile addObserver:self forKeyPath:@"fetchStatus" options:0 context:nil];
         [profile fetch];
-    } else if (session.createFailed) {
-        
-    } else if (session.destroyFailed) {
-        
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
-
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +76,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please enter a valid email." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     } else {
+        loginSpinner.hidden = NO;
         [state addObserver:self forKeyPath:@"status" options:0 context:nil];
         [state loginWithIdentifier:usernameTextField.text zipcode:@""];
     }
@@ -97,7 +88,6 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    NSLog(@"%@ %@", object, keyPath);
     if ([keyPath isEqualToString:@"status"]) {
         if (state.status == SCRegStatusSuccess) {
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
@@ -112,6 +102,7 @@
                 [profile removeObserver:self forKeyPath:@"fetchStatus"];
                 [session destroy];
             } else {
+                loginSpinner.hidden = YES;
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been logged in" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 [self dismissViewControllerAnimated:YES completion:nil];

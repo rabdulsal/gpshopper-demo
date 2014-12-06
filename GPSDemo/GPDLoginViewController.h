@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GPShopper/GPShopper.h>
 
 @interface GPDLoginViewController : UIViewController
 

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPDLoginViewController">
             <connections>
                 <outlet property="cancelButton" destination="Dwh-eQ-hXZ" id="e95-eX-Nx1"/>
+                <outlet property="loginSpinner" destination="o1i-F6-0AX" id="lbQ-Fa-EvV"/>
                 <outlet property="usernameTextField" destination="B84-1V-Aec" id="hnd-RC-Ihl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -39,6 +40,9 @@
                         <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="1tF-uj-502"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="o1i-F6-0AX">
+                    <rect key="frame" x="30" y="180" width="20" height="20"/>
+                </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99F-Ly-3V6">
                     <rect key="frame" x="8" y="220" width="107" height="44"/>
                     <state key="normal" title="Create Account">
@@ -55,6 +59,7 @@
                 <constraint firstItem="NWA-3D-5vX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="N4s-lX-V5V"/>
                 <constraint firstAttribute="trailing" secondItem="B84-1V-Aec" secondAttribute="trailing" constant="8" id="S4j-0q-4xW"/>
                 <constraint firstAttribute="trailing" secondItem="NWA-3D-5vX" secondAttribute="trailing" constant="8" id="UJB-Wn-w6c"/>
+                <constraint firstItem="o1i-F6-0AX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="pE4-O8-TrP"/>
             </constraints>
             <point key="canvasLocation" x="247" y="279"/>
         </view>

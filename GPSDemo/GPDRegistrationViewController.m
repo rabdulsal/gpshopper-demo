@@ -7,6 +7,7 @@
 //
 
 #import "GPDRegistrationViewController.h"
+#import <GPShopper/GPShopper.h>
 
 @interface GPDRegistrationViewController () <UITextFieldDelegate>
 {
@@ -69,24 +70,10 @@
     [self registerForKeyboardNotifications];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [state addObserver:self forKeyPath:@"status" options:0 context:nil];
-    [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
 - (void)sessionUpdated {
     if (session.exists) {
+        [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
         [profile sendUpdates];
-    } else if (session.createFailed) {
-        
-    } else if (session.destroyFailed) {
-        
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
 }
@@ -95,6 +82,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)registerButtonPressed:(id)sender {
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$" options:(NSRegularExpressionCaseInsensitive) error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:emailTextField.text options:0 range:NSMakeRange(0, [emailTextField.text length])];
@@ -117,10 +105,12 @@
                                               otherButtonTitles:nil, nil];
         [alert show];
     } else {
+        spinner.hidden = NO;
         [profile stageUpdatedFirstName:firstNameTextField.text];
         [profile stageUpdatedLastName:lastNameTextField.text];
         [profile stageUpdatedEmail:emailTextField.text];
         [profile stageSupplementalValue:phoneTextField.text forKey:@"phone"];
+        [state addObserver:self forKeyPath:@"status" options:0 context:nil];
         [state loginWithIdentifier:emailTextField.text zipcode:@""];
         
     }
@@ -129,21 +119,19 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"status"]) {
         if (state.status == SCRegStatusSuccess) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdated) name:@"scsession_updated" object:session];
             [session create];
             [state removeObserver:self forKeyPath:@"status"];
         }
     } else if ([keyPath isEqualToString:@"updateStatus"]) {
         if (profile.updateStatus == SCProfileRemoteSuccess) {
-            [self createAccount];
+            spinner.hidden = YES;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been registered" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            [self dismissViewControllerAnimated:YES completion:nil];
             [profile removeObserver:self forKeyPath:@"updateStatus"];
         }
     }
-}
-
-- (void)createAccount {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been registered" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)doneButtonPressed:(id)sender {

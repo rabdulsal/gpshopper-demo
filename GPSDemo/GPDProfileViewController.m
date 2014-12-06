@@ -8,8 +8,9 @@
 
 #import "GPDProfileViewController.h"
 #import "GPDLoginViewController.h"
+#import <GPShopper/GPShopper.h>
 
-@interface GPDProfileViewController ()
+@interface GPDProfileViewController () <UIAlertViewDelegate>
 {
     SCProfile *profile;
     SCSession *session;
@@ -70,7 +71,6 @@
 
 - (void)sessionUpdated {
     if (!session.exists) {
-        
         [profile clear];
         [state clear];
         firstNameLabel.hidden = YES;
@@ -85,7 +85,13 @@
         [loginLogoutButton setTitle:@"Logout" forState:UIControlStateNormal];
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [session destroy];
+        [loginLogoutButton setTitle:@"Login" forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,18 +101,14 @@
 
 - (IBAction)loginLogoutButtonPressed:(id)sender {
     if (session.exists) {
-        [session destroy];
-        [loginLogoutButton setTitle:@"Login" forState:UIControlStateNormal];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Log out?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Logout", nil];
+        [alert show];
     } else {
-        [self showLogin];
+        GPDLoginViewController *vc = [[GPDLoginViewController alloc] initWithNibName:@"GPDLoginViewController" bundle:nil];
+        vc.title = @"Login";
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nc animated:YES completion:nil];
     }
-}
-
-- (void)showLogin {
-    GPDLoginViewController *vc = [[GPDLoginViewController alloc] initWithNibName:@"GPDLoginViewController" bundle:nil];
-    vc.title = @"Login";
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nc animated:YES completion:nil];
 }
 
 @end
