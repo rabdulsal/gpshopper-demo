@@ -36,7 +36,6 @@
 		1A74D370191FBD1C00CBD8D7 /* menu_stores.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A74D36A191FBD1C00CBD8D7 /* menu_stores.png */; };
 		1A74D371191FBD1C00CBD8D7 /* menu_stores@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A74D36B191FBD1C00CBD8D7 /* menu_stores@2x.png */; };
 		1A79E9B3191ED4B500075478 /* GPDSideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A79E9B2191ED4B500075478 /* GPDSideMenuCell.m */; };
-		1A95B69919E71BB40078028E /* GPShopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A95B69819E71BB40078028E /* GPShopper.framework */; };
 		1A95B69B19E71D650078028E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A95B69A19E71D640078028E /* SystemConfiguration.framework */; };
 		1A95B69F19E71EFD0078028E /* GPDEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95B69D19E71EFD0078028E /* GPDEventsViewController.m */; };
 		1A95B6A019E71EFD0078028E /* GPDEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A95B69E19E71EFD0078028E /* GPDEventsViewController.xib */; };
@@ -68,6 +67,9 @@
 		1A9D6293191EB61A0069D303 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A9D6284191EB61A0069D303 /* OpenSans-Regular.ttf */; };
 		1A9D6294191EB61A0069D303 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A9D6285191EB61A0069D303 /* OpenSans-Semibold.ttf */; };
 		1A9D6295191EB61A0069D303 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A9D6286191EB61A0069D303 /* OpenSans-SemiboldItalic.ttf */; };
+		1AAD945C1A323E06003C5156 /* GPShopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAD945B1A323E06003C5156 /* GPShopper.framework */; };
+		1AAD94601A324949003C5156 /* GPDShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD945E1A324949003C5156 /* GPDShoppingListViewController.m */; };
+		1AAD94611A324949003C5156 /* GPDShoppingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAD945F1A324949003C5156 /* GPDShoppingListViewController.xib */; };
 		1AD79DBC19EC893000E485AB /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD79DBA19EC893000E485AB /* EventKit.framework */; };
 		1AD79DBD19EC893000E485AB /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD79DBB19EC893000E485AB /* EventKitUI.framework */; };
 		1AD79DC119ED859B00E485AB /* GPDPromoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79DBF19ED859B00E485AB /* GPDPromoViewController.m */; };
@@ -85,7 +87,6 @@
 		1AFFEED8192403CE00340EE5 /* GPDSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFEED6192403CE00340EE5 /* GPDSearchViewController.xib */; };
 		1AFFEEDD1924186600340EE5 /* GPDPDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFFEEDB1924186600340EE5 /* GPDPDPViewController.m */; };
 		1AFFEEDE1924186600340EE5 /* GPDPDPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFEEDC1924186600340EE5 /* GPDPDPViewController.xib */; };
-		C01C5C941A00074200A4EF98 /* GPShopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01C5C931A00074200A4EF98 /* GPShopper.framework */; };
 		C032A2B71A002C7600088FFF /* GPDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C032A2B51A002C7600088FFF /* GPDProfileViewController.m */; };
 		C032A2B81A002C7600088FFF /* GPDProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C032A2B61A002C7600088FFF /* GPDProfileViewController.xib */; };
 		C032A2BC1A00328500088FFF /* GPDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C032A2BA1A00328500088FFF /* GPDLoginViewController.m */; };
@@ -133,7 +134,6 @@
 		1A74D36B191FBD1C00CBD8D7 /* menu_stores@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_stores@2x.png"; sourceTree = "<group>"; };
 		1A79E9B1191ED4B500075478 /* GPDSideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDSideMenuCell.h; sourceTree = "<group>"; };
 		1A79E9B2191ED4B500075478 /* GPDSideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDSideMenuCell.m; sourceTree = "<group>"; };
-		1A95B69819E71BB40078028E /* GPShopper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPShopper.framework; sourceTree = "<group>"; };
 		1A95B69A19E71D640078028E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1A95B69C19E71EFD0078028E /* GPDEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDEventsViewController.h; sourceTree = "<group>"; };
 		1A95B69D19E71EFD0078028E /* GPDEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDEventsViewController.m; sourceTree = "<group>"; };
@@ -177,6 +177,10 @@
 		1A9D6285191EB61A0069D303 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		1A9D6286191EB61A0069D303 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		1A9D62B5191EB68B0069D303 /* GPSDemo Framework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GPSDemo Framework-Info.plist"; sourceTree = "<group>"; };
+		1AAD945B1A323E06003C5156 /* GPShopper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPShopper.framework; sourceTree = "<group>"; };
+		1AAD945D1A324949003C5156 /* GPDShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDShoppingListViewController.h; sourceTree = "<group>"; };
+		1AAD945E1A324949003C5156 /* GPDShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDShoppingListViewController.m; sourceTree = "<group>"; };
+		1AAD945F1A324949003C5156 /* GPDShoppingListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDShoppingListViewController.xib; sourceTree = "<group>"; };
 		1AD79DBA19EC893000E485AB /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		1AD79DBB19EC893000E485AB /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		1AD79DBE19ED859B00E485AB /* GPDPromoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDPromoViewController.h; sourceTree = "<group>"; };
@@ -201,7 +205,6 @@
 		1AFFEEDA1924186600340EE5 /* GPDPDPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDPDPViewController.h; sourceTree = "<group>"; };
 		1AFFEEDB1924186600340EE5 /* GPDPDPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDPDPViewController.m; sourceTree = "<group>"; };
 		1AFFEEDC1924186600340EE5 /* GPDPDPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDPDPViewController.xib; sourceTree = "<group>"; };
-		C01C5C931A00074200A4EF98 /* GPShopper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPShopper.framework; sourceTree = "<group>"; };
 		C032A2B41A002C7600088FFF /* GPDProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDProfileViewController.h; sourceTree = "<group>"; };
 		C032A2B51A002C7600088FFF /* GPDProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDProfileViewController.m; sourceTree = "<group>"; };
 		C032A2B61A002C7600088FFF /* GPDProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDProfileViewController.xib; sourceTree = "<group>"; };
@@ -225,11 +228,10 @@
 				1AF412F5191EBA350044CAA8 /* libc++.dylib in Frameworks */,
 				1AF412F3191EBA2C0044CAA8 /* libz.dylib in Frameworks */,
 				1A080AC21914277500858C66 /* CoreGraphics.framework in Frameworks */,
-				1A95B69919E71BB40078028E /* GPShopper.framework in Frameworks */,
+				1AAD945C1A323E06003C5156 /* GPShopper.framework in Frameworks */,
 				1A74D363191F11C300CBD8D7 /* MapKit.framework in Frameworks */,
 				1A080AC41914277500858C66 /* UIKit.framework in Frameworks */,
 				1A080AC01914277500858C66 /* Foundation.framework in Frameworks */,
-				C01C5C941A00074200A4EF98 /* GPShopper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,12 +261,11 @@
 		1A080ABE1914277500858C66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C01C5C931A00074200A4EF98 /* GPShopper.framework */,
+				1AAD945B1A323E06003C5156 /* GPShopper.framework */,
 				1AD79DBA19EC893000E485AB /* EventKit.framework */,
 				1AD79DBB19EC893000E485AB /* EventKitUI.framework */,
 				1A95B6A219E721AA0078028E /* CoreBluetooth.framework */,
 				1A95B69A19E71D640078028E /* SystemConfiguration.framework */,
-				1A95B69819E71BB40078028E /* GPShopper.framework */,
 				1A74D362191F11C300CBD8D7 /* MapKit.framework */,
 				1AF412F4191EBA350044CAA8 /* libc++.dylib */,
 				1AF412F2191EBA2C0044CAA8 /* libz.dylib */,
@@ -301,6 +302,9 @@
 				1A95B6C219E86F320078028E /* GPDWebViewController.h */,
 				1A95B6C319E86F320078028E /* GPDWebViewController.m */,
 				1A95B6C419E86F320078028E /* GPDWebViewController.xib */,
+				1AAD945D1A324949003C5156 /* GPDShoppingListViewController.h */,
+				1AAD945E1A324949003C5156 /* GPDShoppingListViewController.m */,
+				1AAD945F1A324949003C5156 /* GPDShoppingListViewController.xib */,
 			);
 			path = GPSDemo;
 			sourceTree = "<group>";
@@ -556,6 +560,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAD94611A324949003C5156 /* GPDShoppingListViewController.xib in Resources */,
 				1A9D6295191EB61A0069D303 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				1A95B6BC19E846AE0078028E /* GPDProductCell.xib in Resources */,
 				1A1F52CC19217AFD002AFCB3 /* map_toggle@2x.png in Resources */,
@@ -635,6 +640,7 @@
 				1AFFEEDD1924186600340EE5 /* GPDPDPViewController.m in Sources */,
 				1A74D352191EF56800CBD8D7 /* GPDBrowseViewController.m in Sources */,
 				1AFFEED7192403CE00340EE5 /* GPDSearchViewController.m in Sources */,
+				1AAD94601A324949003C5156 /* GPDShoppingListViewController.m in Sources */,
 				1AD79DC719ED8E0400E485AB /* GPDPromoDetailViewController.m in Sources */,
 				1A95B6A619E7322C0078028E /* UIColor+palette.m in Sources */,
 				1AD79DC119ED859B00E485AB /* GPDPromoViewController.m in Sources */,
@@ -732,10 +738,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: GPShopper, LLC (776ZDTBFVK)";
-
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maya Muller (8FK54JFFP4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -746,7 +750,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "GPShopper-iOS";
-				PROVISIONING_PROFILE = "140a1bd8-e240-4c2d-8236-b340349212db";
+				PROVISIONING_PROFILE = "aaa364bd-b13a-4729-b5d4-05ea0be214ee";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -768,7 +772,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "GPShopper-iOS";
-				PROVISIONING_PROFILE = "140a1bd8-e240-4c2d-8236-b340349212db";
+				PROVISIONING_PROFILE = "aaa364bd-b13a-4729-b5d4-05ea0be214ee";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

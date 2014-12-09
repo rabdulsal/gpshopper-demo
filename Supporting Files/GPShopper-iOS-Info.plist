@@ -44,7 +44,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Demo Geofence, Beacons, and Stores</string>
 	<key>SCClientTypeId</key>
-	<string>208</string>
+	<string>147</string>
 	<key>SCHostName</key>
 	<string>sdk.gpshopper.com</string>
 	<key>UIAppFonts</key>

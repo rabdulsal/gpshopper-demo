@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPDLoginViewController">
             <connections>
                 <outlet property="cancelButton" destination="Dwh-eQ-hXZ" id="e95-eX-Nx1"/>
+                <outlet property="loginButton" destination="NWA-3D-5vX" id="eP4-1T-4gs"/>
                 <outlet property="usernameTextField" destination="B84-1V-Aec" id="hnd-RC-Ihl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,20 +18,24 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B84-1V-Aec">
-                    <rect key="frame" x="8" y="115" width="584" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B84-1V-Aec">
+                    <rect key="frame" x="8" y="109" width="584" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-1i-QBv">
-                    <rect key="frame" x="8" y="86" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-1i-QBv">
+                    <rect key="frame" x="8" y="80" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWA-3D-5vX">
-                    <rect key="frame" x="8" y="168" width="584" height="44"/>
-                    <color key="backgroundColor" red="0.2012328598" green="0.55732810880000005" blue="0.88605737429999998" alpha="1" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWA-3D-5vX">
+                    <rect key="frame" x="8" y="159" width="584" height="36"/>
+                    <color key="backgroundColor" red="0.20655930350000001" green="0.58386907990000003" blue="0.87699258209999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="s9A-Ts-dTs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                     <state key="normal" title="Login">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,8 +44,8 @@
                         <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="1tF-uj-502"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99F-Ly-3V6">
-                    <rect key="frame" x="8" y="220" width="107" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99F-Ly-3V6">
+                    <rect key="frame" x="8" y="203" width="107" height="30"/>
                     <state key="normal" title="Create Account">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -51,10 +56,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="r3a-1i-QBv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="17N-Ks-QWB"/>
+                <constraint firstItem="r3a-1i-QBv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="76e-Xg-rjN"/>
+                <constraint firstItem="99F-Ly-3V6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="8B1-9H-HvU"/>
                 <constraint firstItem="B84-1V-Aec" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="8pk-yk-tXr"/>
                 <constraint firstItem="NWA-3D-5vX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="N4s-lX-V5V"/>
+                <constraint firstItem="99F-Ly-3V6" firstAttribute="top" secondItem="NWA-3D-5vX" secondAttribute="bottom" constant="8" id="OJX-dE-Ard"/>
+                <constraint firstItem="B84-1V-Aec" firstAttribute="top" secondItem="r3a-1i-QBv" secondAttribute="bottom" constant="8" id="PHG-Yh-2Lh"/>
                 <constraint firstAttribute="trailing" secondItem="B84-1V-Aec" secondAttribute="trailing" constant="8" id="S4j-0q-4xW"/>
                 <constraint firstAttribute="trailing" secondItem="NWA-3D-5vX" secondAttribute="trailing" constant="8" id="UJB-Wn-w6c"/>
+                <constraint firstItem="NWA-3D-5vX" firstAttribute="top" secondItem="B84-1V-Aec" secondAttribute="bottom" constant="20" id="UNG-e6-Khz"/>
+                <constraint firstItem="B84-1V-Aec" firstAttribute="top" secondItem="r3a-1i-QBv" secondAttribute="bottom" constant="8" id="iaG-pf-m5y"/>
             </constraints>
             <point key="canvasLocation" x="247" y="279"/>
         </view>

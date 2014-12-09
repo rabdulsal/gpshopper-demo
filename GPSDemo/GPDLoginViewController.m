@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -46,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.loginButton.layer.cornerRadius = 2;
     self.navigationItem.leftBarButtonItem = self.cancelButton;
     self.title = @"Login";
     
@@ -147,6 +148,7 @@
                 
                 break;
             case SCProfileRemoteSuccess:
+                [[SCShoppingList defaultList] fetch];
                 [self dismissViewControllerAnimated:YES completion:nil];
                 break;
         }

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) SCLocalizedProductFetcher *productFetcher;
+@property (weak, nonatomic) IBOutlet UIButton *shoppingListButton;
 
 @end
 
@@ -26,6 +27,8 @@
     [self reloadAll];
     
     self.productFetcher = [[SCLocalizedProductFetcher alloc] initWithListener:self];
+    self.shoppingListButton.layer.cornerRadius = 2.f;
+    
     if (self.grpid) {
         [self.productFetcher fetchLocalizedProductForGrpid:self.grpid zipcode:@"USEGPS"];
     } else if (self.product) {
@@ -68,6 +71,13 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)addToShoppingList:(id)sender {
+    SCShoppingList *shoppingList = [SCShoppingList defaultList];
+
+        SCShoppingListItemId *i = [[SCShoppingListItemId alloc] initWithGrpid:self.product.grpid piid:0];
+    SCShoppingListItemPrimaryUpdate *update = [[SCShoppingListItemPrimaryUpdate alloc] initWithItemId:i localBaseProduct:self.product message:self.product.productName mslSupplemental:@{} state:SCShoppingListItemTypeDefault];
+    [shoppingList stageUpdate:update];
+}
 
 #pragma mark SCLocalizedProductFetcherListener
 -(void)scLocalizedProductFetcher: (SCLocalizedProductFetcher *)f

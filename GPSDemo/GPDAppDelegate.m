@@ -22,6 +22,7 @@
 #import "GPDPromoViewController.h"
 #import "GPDPromoDetailViewController.h"
 #import "GPDMoreViewController.h"
+#import "GPDShoppingListViewController.h"
 #import "GPDProfileViewController.h"
 
 @interface GPDAppDelegate ()
@@ -36,7 +37,7 @@
 @property (strong, nonatomic) GPDPromoViewController *promoViewController;
 @property (strong, nonatomic) GPDMoreViewController *moreViewController;
 @property (strong, nonatomic) GPDProfileViewController *profileViewController;
-
+@property (strong, nonatomic) GPDShoppingListViewController *shoppingListViewController;
 @property (strong, nonatomic) SCWebTrackingEventBatchSender *batchSender;
 
 
@@ -248,6 +249,7 @@
                                 self.storesViewController,
                                 self.eventsViewController,
                                 self.profileViewController,
+                                self.shoppingListViewController,
                                 self.moreViewController,
                                 nil];
     return viewControllers;
@@ -311,6 +313,16 @@
     return _profileViewController;
 }
 
+
+- (GPDShoppingListViewController *)shoppingListViewController
+{
+    if (!_shoppingListViewController) {
+        _shoppingListViewController = [GPDShoppingListViewController new];
+        _shoppingListViewController.title = @"Shopping List";
+    }
+    return _shoppingListViewController;
+}
+
 - (GPDMoreViewController *)moreViewController
 {
     if (!_moreViewController) {
@@ -326,6 +338,7 @@
     }
     return _moreViewController;
 }
+
 
 - (UITabBarController *)tabBarWithViewControllers:(NSArray *)viewControllers
 {
