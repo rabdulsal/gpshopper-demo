@@ -28,7 +28,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJd-mE-TJi">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-zL-3nc">
+                        <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-zL-3nc">
                             <rect key="frame" x="8" y="37" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -39,7 +39,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBY-Zf-heD">
+                        <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBY-Zf-heD">
                             <rect key="frame" x="8" y="120" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -50,7 +50,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-o5-Shy">
+                        <textField opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-o5-Shy">
                             <rect key="frame" x="8" y="207" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -61,7 +61,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" tag="104" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMm-Ds-m3S">
+                        <textField opaque="NO" clipsSubviews="YES" tag="104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMm-Ds-m3S">
                             <rect key="frame" x="8" y="288" width="304" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -72,9 +72,6 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tYf-tq-HKC">
-                            <rect key="frame" x="150" y="169" width="20" height="20"/>
-                        </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkF-6f-DtY">
                             <rect key="frame" x="8" y="347" width="304" height="44"/>
                             <color key="backgroundColor" red="0.2012328598" green="0.55732810880000005" blue="0.88605737429999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,28 +83,21 @@
                                 <action selector="registerButtonPressed:" destination="-1" eventType="touchUpInside" id="rgM-So-Q0g"/>
                             </connections>
                         </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="tYf-tq-HKC">
+                            <rect key="frame" x="19" y="359" width="20" height="20"/>
+                        </activityIndicatorView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="KMm-Ds-m3S" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="5zI-cV-mOy"/>
-                        <constraint firstAttribute="trailing" secondItem="VkF-6f-DtY" secondAttribute="trailing" constant="8" id="8fE-Ed-jeG"/>
-                        <constraint firstItem="6jL-zL-3nc" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="HAF-jZ-Cfe"/>
-                        <constraint firstItem="VRi-o5-Shy" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="J4k-ex-v1a"/>
-                        <constraint firstItem="VkF-6f-DtY" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="SJc-dA-dzl"/>
-                        <constraint firstItem="wBY-Zf-heD" firstAttribute="leading" secondItem="VJd-mE-TJi" secondAttribute="leading" constant="8" id="VGv-jL-Ahj"/>
-                        <constraint firstAttribute="trailing" secondItem="KMm-Ds-m3S" secondAttribute="trailing" constant="8" id="b4H-bm-Hdy"/>
-                        <constraint firstAttribute="trailing" secondItem="VRi-o5-Shy" secondAttribute="trailing" constant="8" id="nrE-I0-Sb2"/>
-                        <constraint firstAttribute="trailing" secondItem="6jL-zL-3nc" secondAttribute="trailing" constant="8" id="oqf-cM-Cso"/>
-                        <constraint firstAttribute="centerX" secondItem="tYf-tq-HKC" secondAttribute="centerX" id="ta2-6q-eyB"/>
-                        <constraint firstAttribute="trailing" secondItem="wBY-Zf-heD" secondAttribute="trailing" constant="8" id="ySN-wp-Sqg"/>
+                        <constraint firstAttribute="bottom" secondItem="VkF-6f-DtY" secondAttribute="bottom" constant="20" id="JIR-Ie-h7K"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="VJd-mE-TJi" secondAttribute="trailing" id="1Ak-o6-LXZ"/>
-                <constraint firstAttribute="bottom" secondItem="VJd-mE-TJi" secondAttribute="bottom" id="4fS-4p-W1g"/>
-                <constraint firstItem="VJd-mE-TJi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ujf-Lb-POG"/>
-                <constraint firstItem="VJd-mE-TJi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fwN-31-Ol2"/>
+                <constraint firstItem="VJd-mE-TJi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EsW-1k-aEe"/>
+                <constraint firstAttribute="trailing" secondItem="VJd-mE-TJi" secondAttribute="trailing" id="RHJ-Ra-ocx"/>
+                <constraint firstAttribute="bottom" secondItem="VJd-mE-TJi" secondAttribute="bottom" id="hGb-Bw-AvR"/>
+                <constraint firstItem="VJd-mE-TJi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ioO-Oe-eOZ"/>
             </constraints>
             <point key="canvasLocation" x="450" y="393"/>
         </view>
