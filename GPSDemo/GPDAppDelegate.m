@@ -22,6 +22,7 @@
 #import "GPDPromoViewController.h"
 #import "GPDPromoDetailViewController.h"
 #import "GPDMoreViewController.h"
+#import "GPDInStoreViewController.h"
 #import "GPDShoppingListViewController.h"
 #import "GPDProfileViewController.h"
 
@@ -36,6 +37,7 @@
 @property (strong, nonatomic) GPDEventsViewController *eventsViewController;
 @property (strong, nonatomic) GPDPromoViewController *promoViewController;
 @property (strong, nonatomic) GPDMoreViewController *moreViewController;
+@property (strong, nonatomic) GPDInStoreViewController *inStoreViewController;
 @property (strong, nonatomic) GPDProfileViewController *profileViewController;
 @property (strong, nonatomic) GPDShoppingListViewController *shoppingListViewController;
 @property (strong, nonatomic) SCWebTrackingEventBatchSender *batchSender;
@@ -253,6 +255,7 @@
     NSArray *viewControllers = [[NSArray alloc] initWithObjects:
                                 self.homeViewController,
                                 self.browseViewController,
+                                self.inStoreViewController,
                                 self.storesViewController,
                                 self.eventsViewController,
                                 self.profileViewController,
@@ -346,6 +349,14 @@
     return _moreViewController;
 }
 
+- (GPDInStoreViewController *)inStoreViewController
+{
+    if (!_inStoreViewController) {
+        _inStoreViewController = [GPDInStoreViewController new];
+        _inStoreViewController.title = @"In Store";
+    }
+    return _inStoreViewController;
+}
 
 - (UITabBarController *)tabBarWithViewControllers:(NSArray *)viewControllers
 {

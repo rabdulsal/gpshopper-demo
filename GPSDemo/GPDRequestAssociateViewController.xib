@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPDRequestAssociateViewController">
+            <connections>
+                <outlet property="checkoutSwitch" destination="yL9-Ug-waS" id="Puo-lR-z6i"/>
+                <outlet property="needAssistanceSwitch" destination="pQC-h9-Pcd" id="TTg-e1-G5S"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need Assistance?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBQ-bm-7xt" userLabel="Need Assistance?">
+                    <rect key="frame" x="33" y="40" width="166" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pQC-h9-Pcd" userLabel="Assistance Switch">
+                    <rect key="frame" x="251" y="37" width="51" height="31"/>
+                    <connections>
+                        <action selector="clickedSwitch:" destination="-1" eventType="valueChanged" id="1dD-1J-6V5"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press here to request assistance from a Store Associate." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgM-Fd-qU5" userLabel="Need Assistance Description">
+                    <rect key="frame" x="33" y="74" width="267" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready To Check Out?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nck-dk-zvU" userLabel="Ready To Check Out?">
+                    <rect key="frame" x="33" y="145" width="200" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yL9-Ug-waS" userLabel="Check Out Switch">
+                    <rect key="frame" x="251" y="142" width="51" height="31"/>
+                    <connections>
+                        <action selector="clickedSwitch:" destination="-1" eventType="valueChanged" id="Rya-hb-u6x"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press here to have a Sales Associate help you check out." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6T-6Q-zso" userLabel="Checkout Description">
+                    <rect key="frame" x="33" y="179" width="267" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pQC-h9-Pcd" firstAttribute="trailing" secondItem="yL9-Ug-waS" secondAttribute="trailing" id="6qa-Ga-OXB"/>
+                <constraint firstItem="C6T-6Q-zso" firstAttribute="top" secondItem="nck-dk-zvU" secondAttribute="bottom" constant="10" id="74H-PJ-6Ec"/>
+                <constraint firstItem="dgM-Fd-qU5" firstAttribute="trailing" secondItem="C6T-6Q-zso" secondAttribute="trailing" id="7qh-Ts-xMa"/>
+                <constraint firstItem="dgM-Fd-qU5" firstAttribute="leading" secondItem="MBQ-bm-7xt" secondAttribute="leading" id="8Ot-Wa-QOK"/>
+                <constraint firstItem="C6T-6Q-zso" firstAttribute="leading" secondItem="nck-dk-zvU" secondAttribute="leading" id="HFr-jf-tdg"/>
+                <constraint firstAttribute="trailing" secondItem="pQC-h9-Pcd" secondAttribute="trailing" constant="20" id="Lxh-IN-k7T"/>
+                <constraint firstItem="MBQ-bm-7xt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="X4c-BK-zKi"/>
+                <constraint firstAttribute="trailing" secondItem="dgM-Fd-qU5" secondAttribute="trailing" constant="20" id="Y0O-mN-hBH"/>
+                <constraint firstItem="nck-dk-zvU" firstAttribute="top" secondItem="dgM-Fd-qU5" secondAttribute="bottom" constant="30" id="bny-JC-MB4"/>
+                <constraint firstItem="dgM-Fd-qU5" firstAttribute="top" secondItem="MBQ-bm-7xt" secondAttribute="bottom" constant="10" id="br9-FM-6Mw"/>
+                <constraint firstItem="pQC-h9-Pcd" firstAttribute="centerY" secondItem="MBQ-bm-7xt" secondAttribute="centerY" id="fmt-OD-D5v"/>
+                <constraint firstItem="yL9-Ug-waS" firstAttribute="centerY" secondItem="nck-dk-zvU" secondAttribute="centerY" id="kiT-8N-TDf"/>
+                <constraint firstItem="MBQ-bm-7xt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="r2J-XD-Y6L"/>
+                <constraint firstItem="nck-dk-zvU" firstAttribute="leading" secondItem="MBQ-bm-7xt" secondAttribute="leading" id="uey-MY-Opt"/>
+            </constraints>
+            <point key="canvasLocation" x="167" y="148"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

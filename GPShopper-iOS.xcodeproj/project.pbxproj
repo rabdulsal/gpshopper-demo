@@ -87,6 +87,10 @@
 		1AFFEED8192403CE00340EE5 /* GPDSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFEED6192403CE00340EE5 /* GPDSearchViewController.xib */; };
 		1AFFEEDD1924186600340EE5 /* GPDPDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFFEEDB1924186600340EE5 /* GPDPDPViewController.m */; };
 		1AFFEEDE1924186600340EE5 /* GPDPDPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFEEDC1924186600340EE5 /* GPDPDPViewController.xib */; };
+		2EC464C31A7948DE00B7A823 /* GPDRequestAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC464C11A7948DE00B7A823 /* GPDRequestAssociateViewController.m */; };
+		2EC464C41A7948DE00B7A823 /* GPDRequestAssociateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC464C21A7948DE00B7A823 /* GPDRequestAssociateViewController.xib */; };
+		2EC464C81A794A5200B7A823 /* GPDInStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC464C61A794A5200B7A823 /* GPDInStoreViewController.m */; };
+		2EC464C91A794A5200B7A823 /* GPDInStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC464C71A794A5200B7A823 /* GPDInStoreViewController.xib */; };
 		C032A2B71A002C7600088FFF /* GPDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C032A2B51A002C7600088FFF /* GPDProfileViewController.m */; };
 		C032A2B81A002C7600088FFF /* GPDProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C032A2B61A002C7600088FFF /* GPDProfileViewController.xib */; };
 		C032A2BC1A00328500088FFF /* GPDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C032A2BA1A00328500088FFF /* GPDLoginViewController.m */; };
@@ -205,6 +209,12 @@
 		1AFFEEDA1924186600340EE5 /* GPDPDPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDPDPViewController.h; sourceTree = "<group>"; };
 		1AFFEEDB1924186600340EE5 /* GPDPDPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDPDPViewController.m; sourceTree = "<group>"; };
 		1AFFEEDC1924186600340EE5 /* GPDPDPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDPDPViewController.xib; sourceTree = "<group>"; };
+		2EC464C01A7948DE00B7A823 /* GPDRequestAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDRequestAssociateViewController.h; sourceTree = "<group>"; };
+		2EC464C11A7948DE00B7A823 /* GPDRequestAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDRequestAssociateViewController.m; sourceTree = "<group>"; };
+		2EC464C21A7948DE00B7A823 /* GPDRequestAssociateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDRequestAssociateViewController.xib; sourceTree = "<group>"; };
+		2EC464C51A794A5200B7A823 /* GPDInStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDInStoreViewController.h; sourceTree = "<group>"; };
+		2EC464C61A794A5200B7A823 /* GPDInStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDInStoreViewController.m; sourceTree = "<group>"; };
+		2EC464C71A794A5200B7A823 /* GPDInStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDInStoreViewController.xib; sourceTree = "<group>"; };
 		C032A2B41A002C7600088FFF /* GPDProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPDProfileViewController.h; sourceTree = "<group>"; };
 		C032A2B51A002C7600088FFF /* GPDProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPDProfileViewController.m; sourceTree = "<group>"; };
 		C032A2B61A002C7600088FFF /* GPDProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPDProfileViewController.xib; sourceTree = "<group>"; };
@@ -288,6 +298,7 @@
 				C032A2A51A0027AF00088FFF /* REGISTRATION */,
 				1AF41305191EC59C0044CAA8 /* SideMenu */,
 				1AF41306191EC5E90044CAA8 /* HOME */,
+				2EC464BF1A79488000B7A823 /* INSTORE */,
 				1A74D35B191F110F00CBD8D7 /* BROWSE */,
 				1A74D361191F112500CBD8D7 /* STORES */,
 				1AFFEED9192403D100340EE5 /* SEARCH */,
@@ -482,6 +493,19 @@
 			name = PDP;
 			sourceTree = "<group>";
 		};
+		2EC464BF1A79488000B7A823 /* INSTORE */ = {
+			isa = PBXGroup;
+			children = (
+				2EC464C51A794A5200B7A823 /* GPDInStoreViewController.h */,
+				2EC464C61A794A5200B7A823 /* GPDInStoreViewController.m */,
+				2EC464C71A794A5200B7A823 /* GPDInStoreViewController.xib */,
+				2EC464C01A7948DE00B7A823 /* GPDRequestAssociateViewController.h */,
+				2EC464C11A7948DE00B7A823 /* GPDRequestAssociateViewController.m */,
+				2EC464C21A7948DE00B7A823 /* GPDRequestAssociateViewController.xib */,
+			);
+			name = INSTORE;
+			sourceTree = "<group>";
+		};
 		C032A2A51A0027AF00088FFF /* REGISTRATION */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,10 +619,12 @@
 				1A74D370191FBD1C00CBD8D7 /* menu_stores.png in Resources */,
 				1A74D36C191FBD1C00CBD8D7 /* menu_browse.png in Resources */,
 				1A080AF219142E4E00858C66 /* GPDHomeViewController.xib in Resources */,
+				2EC464C91A794A5200B7A823 /* GPDInStoreViewController.xib in Resources */,
 				1A74D36E191FBD1C00CBD8D7 /* menu_home.png in Resources */,
 				1A74D371191FBD1C00CBD8D7 /* menu_stores@2x.png in Resources */,
 				1A9D628B191EB61A0069D303 /* LICENSE.txt in Resources */,
 				1A9D6291191EB61A0069D303 /* OpenSans-Light.ttf in Resources */,
+				2EC464C41A7948DE00B7A823 /* GPDRequestAssociateViewController.xib in Resources */,
 				1A20B2A119E8A05F00EF404C /* GPDStoreDetailViewController.xib in Resources */,
 				1A9D6293191EB61A0069D303 /* OpenSans-Regular.ttf in Resources */,
 				C032A2C21A0041A200088FFF /* GPDRegistrationViewController.xib in Resources */,
@@ -625,6 +651,8 @@
 				1A74D35F191F112200CBD8D7 /* GPDStoresViewController.m in Sources */,
 				1A95B6AC19E73B610078028E /* GPDImageFetcher.m in Sources */,
 				1A95B6C019E84A690078028E /* GPDEventCell.m in Sources */,
+				2EC464C31A7948DE00B7A823 /* GPDRequestAssociateViewController.m in Sources */,
+				2EC464C81A794A5200B7A823 /* GPDInStoreViewController.m in Sources */,
 				1AD79DCE19EDC49400E485AB /* TWTSideMenuViewController.m in Sources */,
 				1A20B2A519E8BCAC00EF404C /* GPDCollectionViewCell.m in Sources */,
 				C032A2B71A002C7600088FFF /* GPDProfileViewController.m in Sources */,
