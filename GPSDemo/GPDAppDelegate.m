@@ -92,15 +92,16 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {}
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationWillEnterForeground:(UIApplication *)application {
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways)
     {
         [CustomAlertView showSimpleAlertWithTitle:nil message:@"You must allow for Locations!"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:
                                                     UIApplicationOpenSettingsURLString]];
     }
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {}
