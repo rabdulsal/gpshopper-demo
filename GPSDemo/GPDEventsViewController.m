@@ -46,7 +46,8 @@
                                                                         maxDate:nil
                                                                        latitude:-1.0
                                                                       longitude:-1.0
-                                                                        eventid:0];
+                                                                        eventid:0
+                                                                        storeid:0];
     [self.eventsFetcher fetchEventsWithSpecs:searchSpecs];
 }
 
