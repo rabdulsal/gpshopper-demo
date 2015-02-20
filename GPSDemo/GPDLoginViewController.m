@@ -57,7 +57,7 @@
     if (session.exists) {
         [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
         [profile stageUpdatedFirstName:userFirstNameTextField.text];
-        [profile stageUpdatedFirstName:userLastNameTextField.text];
+        [profile stageUpdatedLastName:userLastNameTextField.text];
         [profile stageUpdatedEmail:usernameTextField.text];
         [profile sendUpdates];
     }
