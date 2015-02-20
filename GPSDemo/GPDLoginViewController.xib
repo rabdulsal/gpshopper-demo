@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -10,6 +10,8 @@
                 <outlet property="cancelButton" destination="Dwh-eQ-hXZ" id="e95-eX-Nx1"/>
                 <outlet property="loginButton" destination="NWA-3D-5vX" id="BDz-ud-bTL"/>
                 <outlet property="loginSpinner" destination="o1i-F6-0AX" id="lbQ-Fa-EvV"/>
+                <outlet property="userFirstNameTextField" destination="NMR-jL-yoC" id="bQq-hz-bXr"/>
+                <outlet property="userLastNameTextField" destination="Hgd-dN-f8g" id="BXN-z8-DYR"/>
                 <outlet property="usernameTextField" destination="B84-1V-Aec" id="hnd-RC-Ihl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,19 +21,41 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B84-1V-Aec">
-                    <rect key="frame" x="8" y="109" width="584" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-1i-QBv">
-                    <rect key="frame" x="8" y="80" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpx-8s-rKq" userLabel="FirstName">
+                    <rect key="frame" x="8" y="80" width="84" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMR-jL-yoC" userLabel="FirstName TextField">
+                    <rect key="frame" x="8" y="111" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2II-xw-h2D" userLabel="LastName">
+                    <rect key="frame" x="8" y="151" width="83" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hgd-dN-f8g" userLabel="LastName TextField">
+                    <rect key="frame" x="8" y="182" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-1i-QBv">
+                    <rect key="frame" x="8" y="222" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B84-1V-Aec" userLabel="Email TextField">
+                    <rect key="frame" x="8" y="253" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWA-3D-5vX">
-                    <rect key="frame" x="8" y="159" width="584" height="40"/>
+                    <rect key="frame" x="8" y="303" width="584" height="40"/>
                     <color key="backgroundColor" red="0.20655930350000001" green="0.58386907990000003" blue="0.87699258209999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="yvf-iX-dlB"/>
@@ -46,10 +70,10 @@
                     </connections>
                 </button>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="o1i-F6-0AX">
-                    <rect key="frame" x="30" y="169" width="20" height="20"/>
+                    <rect key="frame" x="30" y="313" width="20" height="20"/>
                 </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99F-Ly-3V6">
-                    <rect key="frame" x="8" y="207" width="107" height="30"/>
+                    <rect key="frame" x="8" y="351" width="107" height="30"/>
                     <state key="normal" title="Create Account">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -64,16 +88,34 @@
                 <constraint firstItem="NWA-3D-5vX" firstAttribute="top" secondItem="B84-1V-Aec" secondAttribute="bottom" constant="20" id="AhE-ao-HiP"/>
                 <constraint firstItem="r3a-1i-QBv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="ClA-qJ-Unb"/>
                 <constraint firstItem="NWA-3D-5vX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="N4s-lX-V5V"/>
+                <constraint firstItem="NMR-jL-yoC" firstAttribute="leading" secondItem="2II-xw-h2D" secondAttribute="leading" id="RF4-FS-1us"/>
                 <constraint firstAttribute="trailing" secondItem="B84-1V-Aec" secondAttribute="trailing" constant="8" id="S4j-0q-4xW"/>
+                <constraint firstItem="NMR-jL-yoC" firstAttribute="top" secondItem="r3a-1i-QBv" secondAttribute="top" id="SzF-hm-cfT"/>
                 <constraint firstAttribute="trailing" secondItem="NWA-3D-5vX" secondAttribute="trailing" constant="8" id="UJB-Wn-w6c"/>
-                <constraint firstItem="B84-1V-Aec" firstAttribute="top" secondItem="r3a-1i-QBv" secondAttribute="bottom" constant="8" id="baX-Mf-AT3"/>
+                <constraint firstAttribute="trailing" secondItem="NMR-jL-yoC" secondAttribute="trailing" constant="8" id="WhS-kc-uM2"/>
+                <constraint firstItem="Hgd-dN-f8g" firstAttribute="leading" secondItem="2II-xw-h2D" secondAttribute="leading" id="XVh-ia-h96"/>
+                <constraint firstItem="r3a-1i-QBv" firstAttribute="top" secondItem="B84-1V-Aec" secondAttribute="top" id="ZZA-gq-nK0"/>
+                <constraint firstItem="B84-1V-Aec" firstAttribute="top" secondItem="r3a-1i-QBv" secondAttribute="bottom" constant="10" id="baX-Mf-AT3"/>
                 <constraint firstItem="o1i-F6-0AX" firstAttribute="top" secondItem="B84-1V-Aec" secondAttribute="bottom" constant="30" id="daD-b9-2OQ"/>
                 <constraint firstItem="99F-Ly-3V6" firstAttribute="top" secondItem="NWA-3D-5vX" secondAttribute="bottom" constant="8" id="fYY-AM-nFA"/>
+                <constraint firstItem="zpx-8s-rKq" firstAttribute="leading" secondItem="NMR-jL-yoC" secondAttribute="leading" id="hlv-Ho-bN9"/>
+                <constraint firstItem="NMR-jL-yoC" firstAttribute="top" secondItem="zpx-8s-rKq" secondAttribute="bottom" constant="10" id="kfS-lB-zN9"/>
                 <constraint firstItem="99F-Ly-3V6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="lDk-Rz-8DP"/>
+                <constraint firstItem="r3a-1i-QBv" firstAttribute="top" secondItem="Hgd-dN-f8g" secondAttribute="bottom" constant="10" id="lRu-g9-R35"/>
+                <constraint firstItem="zpx-8s-rKq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="oIk-JY-bQk"/>
+                <constraint firstItem="zpx-8s-rKq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="oUw-Be-ZNz"/>
                 <constraint firstItem="o1i-F6-0AX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="pE4-O8-TrP"/>
-                <constraint firstItem="r3a-1i-QBv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="qda-Lg-hSF"/>
+                <constraint firstItem="2II-xw-h2D" firstAttribute="top" secondItem="NMR-jL-yoC" secondAttribute="bottom" constant="10" id="qNq-De-aaf"/>
+                <constraint firstItem="NMR-jL-yoC" firstAttribute="trailing" secondItem="Hgd-dN-f8g" secondAttribute="trailing" id="tny-hq-dJS"/>
+                <constraint firstItem="Hgd-dN-f8g" firstAttribute="top" secondItem="2II-xw-h2D" secondAttribute="bottom" constant="10" id="vsE-et-Rp7"/>
             </constraints>
-            <point key="canvasLocation" x="247" y="279"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="SzF-hm-cfT"/>
+                    <exclude reference="ZZA-gq-nK0"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="392" y="276"/>
         </view>
         <barButtonItem systemItem="cancel" id="Dwh-eQ-hXZ">
             <connections>

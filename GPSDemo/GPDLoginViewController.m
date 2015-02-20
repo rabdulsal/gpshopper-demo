@@ -17,6 +17,8 @@
     SCSession *session;
 }
 
+@property (strong, nonatomic) IBOutlet UITextField *userFirstNameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *userLastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loginSpinner;
@@ -25,6 +27,8 @@
 @end
 
 @implementation GPDLoginViewController
+@synthesize userFirstNameTextField;
+@synthesize userLastNameTextField;
 @synthesize usernameTextField;
 @synthesize loginSpinner;
 
@@ -51,8 +55,11 @@
 
 - (void)sessionUpdated {
     if (session.exists) {
-        [profile addObserver:self forKeyPath:@"fetchStatus" options:0 context:nil];
-        [profile fetch];
+        [profile addObserver:self forKeyPath:@"updateStatus" options:0 context:nil];
+        [profile stageUpdatedFirstName:userFirstNameTextField.text];
+        [profile stageUpdatedFirstName:userLastNameTextField.text];
+        [profile stageUpdatedEmail:usernameTextField.text];
+        [profile sendUpdates];
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"scsession_updated" object:session];
 }
@@ -96,20 +103,18 @@
             [session create];
             [state removeObserver:self forKeyPath:@"status"];
         }
-    } else if ([keyPath isEqualToString:@"fetchStatus"]) {
-        if (profile.fetchStatus == SCProfileRemoteSuccess) {
-            if (!profile.firstName) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You don't have an account" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
-                [profile removeObserver:self forKeyPath:@"fetchStatus"];
-                [session destroy];
-            } else {
-                loginSpinner.hidden = YES;
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been logged in" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
-                [self dismissViewControllerAnimated:YES completion:nil];
-                [profile removeObserver:self forKeyPath:@"fetchStatus"];
-            }
+    } else if ([keyPath isEqualToString:@"updateStatus"]) {
+        if (profile.updateStatus == SCProfileRemoteSuccess) {
+            loginSpinner.hidden = YES;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been logged in" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [profile removeObserver:self forKeyPath:@"updateStatus"];
+        } else if (profile.updateStatus == SCProfileRemoteFail) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Login failed." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            [profile removeObserver:self forKeyPath:@"updateStatus"];
+            [session destroy];
         }
     }
 }
