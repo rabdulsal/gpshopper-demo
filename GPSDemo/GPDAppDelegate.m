@@ -345,7 +345,13 @@
         webVC.url = url;
         webVC.title = @"About Us";
         
-        _moreViewController.viewControllers = @[webVC];
+        GPDWebViewController *faqVC = [GPDWebViewController new];
+        NSString *urlString = [NSString stringWithFormat:@"http://assets.gpshopper.com/assets/faq_%ld", (long)[GPSSDKConfiguration clientTypeId]];
+        url = [NSURL URLWithString:urlString];
+        faqVC.url = url;
+        faqVC.title = @"FAQ";
+        
+        _moreViewController.viewControllers = @[webVC,faqVC];
     }
     return _moreViewController;
 }
