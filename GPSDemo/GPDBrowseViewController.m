@@ -12,6 +12,7 @@
 @interface GPDBrowseViewController ()
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property NSInteger childNum;
 
 @end
 
@@ -29,6 +30,10 @@
     if (!self.node) {
         [self.spinner startAnimating];
     }
+    
+    /* ----------------RASHAD EDITS ------------------------------------ */
+    self.title = [self setNodeTitle:self.node.title forNode:self.node];
+    /* ---------------------------------------------------- */
 }
 
 - (void)setNode:(SCBrowseNode *)node
@@ -67,7 +72,6 @@
     
     SCBrowseNode *childNode = [self.node.children objectAtIndex:indexPath.row];
     [cell.textLabel setText:childNode.title];
-    
     return cell;
 }
 
@@ -81,13 +85,17 @@
     SCBrowseNode *childNode = [self.node.children objectAtIndex:indexPath.row];
     if (childNode && [[childNode children] count]) {
         GPDBrowseViewController *vc = [GPDBrowseViewController new];
-        [vc setTitle:childNode.title];
+        
+        /* ----------------RASHAD EDITS ------------------------------------ */
+        [vc setTitle:[self setNodeTitle:childNode.title forNode:childNode]];
+        /* ---------------------------------------------------- */
+        
         [vc setNode:childNode];
         [self.navigationController pushViewController:vc animated:YES];
     } else if (childNode && [childNode searchTerm]) {
         GPDSearchViewController *vc = [GPDSearchViewController new];
         [vc setSearchQuery:[childNode searchTerm]];
-        [vc setTitle:childNode.title];
+        [vc setTitle:[self setNodeTitle:childNode.title forNode:childNode]];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -101,6 +109,18 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+/* ----------------RASHAD EDITS ------------------------------------ */
+
+- (NSString *)setNodeTitle:(NSString *)title forNode:(SCBrowseNode *)node
+{
+    if (!title) {
+        title = self.title;
+    }
+    NSInteger childNum = [[node children] count];
+    NSString *nodeTitle = [[NSString alloc] initWithFormat:@"%@(%lu)", title, (unsigned long)childNum];
+    return nodeTitle;
+}
+/* ----------------END ------------------------------------ */
 //#pragma mark SCStartupSequenceDelegate
 //-(void)scStartupSequenceUpdatedReachability: (SCStartupSequence *)s {}
 //-(void)scStartupSequenceUpdatedBrowse: (SCStartupSequence *)s

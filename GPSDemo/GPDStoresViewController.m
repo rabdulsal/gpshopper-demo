@@ -8,7 +8,7 @@
 
 #import "GPDStoresViewController.h"
 #import "GPDStoreDetailViewController.h"
-
+#import "GPDAppDelegate.h"
 
 
 
@@ -18,6 +18,11 @@
 @property (strong, nonatomic) GPSSDKStoreLocator *storeFetcher;
 @property (strong, nonatomic) IBOutlet UIButton *toggleButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+/* ---------------- RASHAD EDITS ----------------------- */
+@property SCGeoLocation *userLocation;
+@property NSString *storeDistance;
+/* ---------------------------------------------------- */
 - (IBAction)cancelSearch:(id)sender;
 
 @end
@@ -45,6 +50,10 @@
      selector:@selector(reactToStoreLocationFetchedNotification:)
      name:kGPSSDKStoreLocationFetchedNotification
      object:nil];
+    
+    /* --------------RASHAD EDITS-------------------------------- */
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentLocation:) name:@"locationUpdated" object:nil];
+    /* ---------------------------------------------------- */
     [self searchCurrentLocation];
 }
 
@@ -73,10 +82,21 @@
     [self.spinner startAnimating];
 }
 
+- (void)currentLocation:(NSNotification *)notification
+{
+    self.userLocation = (SCGeoLocation *)[[notification userInfo] valueForKey:@"currentLocation"];
+    NSLog(@"Current User Location: %lf, %lf", self.userLocation.latlon.latitude, self.userLocation.latlon.longitude);
+}
+
 - (void)showDetailForStore:(id<StoreData>)store
 {
     GPDStoreDetailViewController *vc = [GPDStoreDetailViewController new];
     vc.store = store;
+    
+    /* -----------------RASHAD EDITS -------------------- */
+    _storeDistance = [self getDistanceFrom:_userLocation toStoreLocation:store.lat longitude:store.lng];
+    vc.storeDistance = _storeDistance;
+    /* ---------------------------------------------------- */
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -198,9 +218,28 @@
     }
     id<StoreData> store = self.stores[indexPath.row];
     cell.textLabel.text = store.storeName;
-    cell.detailTextLabel.text = store.streetAddress;
+    
+    /* ----------------RASHAD EDITS ------------------------------------ */
+     _storeDistance = [self getDistanceFrom:_userLocation toStoreLocation:store.lat longitude:store.lng];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@ miles away)",store.streetAddress, _storeDistance];
+    /* ---------------------------------------------------- */
     return cell;
 }
+
+/* ----------------RASHAD EDITS ------------------------------------ */
+
+- (NSString *)getDistanceFrom:(SCGeoLocation *)userLocation toStoreLocation:(CGFloat)storeLatitude longitude:(CGFloat)storeLongitude
+{
+    CLLocation *userLocale = [[CLLocation alloc] initWithLatitude:userLocation.lat longitude:userLocation.lon];
+    
+    CLLocation *storeLocale = [[CLLocation alloc] initWithLatitude:storeLatitude longitude:storeLongitude];
+    
+    CLLocationDistance distance = [userLocale distanceFromLocation:storeLocale]*0.000621371;
+    
+    return [NSString stringWithFormat:@"%0.2f", distance];
+}
+
+/* ----------------END------------------------------------ */
 
 #pragma mark UITableViewDelegate
 

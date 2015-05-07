@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Regular.ttf">
@@ -27,13 +27,25 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF6-fK-0us">
                                 <rect key="frame" x="8" y="8" width="218" height="17"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOe-v6-I4t">
+                                <rect key="frame" x="8" y="29" width="218" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bTq-Dh-Xfr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.58006446678321677" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wOe-v6-I4t" firstAttribute="trailing" secondItem="EF6-fK-0us" secondAttribute="trailing" id="ARA-kn-unS"/>
                             <constraint firstItem="EF6-fK-0us" firstAttribute="top" secondItem="iGO-VN-Qa3" secondAttribute="top" constant="8" id="AWU-td-2Sb"/>
+                            <constraint firstItem="wOe-v6-I4t" firstAttribute="leading" secondItem="EF6-fK-0us" secondAttribute="leading" id="BM0-b1-T6v"/>
+                            <constraint firstItem="wOe-v6-I4t" firstAttribute="top" secondItem="EF6-fK-0us" secondAttribute="bottom" constant="4" id="IDX-z6-O57"/>
                             <constraint firstItem="EF6-fK-0us" firstAttribute="leading" secondItem="iGO-VN-Qa3" secondAttribute="leading" constant="8" id="TFv-2G-J3j"/>
                             <constraint firstAttribute="trailing" secondItem="EF6-fK-0us" secondAttribute="trailing" constant="8" id="d8A-7E-UTd"/>
                             <constraint firstAttribute="height" constant="60" id="sIh-d9-oUA"/>
@@ -55,6 +67,7 @@
             <size key="customSize" width="234" height="356"/>
             <connections>
                 <outlet property="imageView" destination="VTa-Dh-nvi" id="nKq-RB-ycm"/>
+                <outlet property="priceLabel" destination="wOe-v6-I4t" id="taO-4g-ylJ"/>
                 <outlet property="titleLabel" destination="EF6-fK-0us" id="FMU-97-hFI"/>
             </connections>
             <point key="canvasLocation" x="231" y="286"/>

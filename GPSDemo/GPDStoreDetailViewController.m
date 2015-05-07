@@ -41,13 +41,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.title = self.store.storeSubname;
     
-    self.storeAddressLabel.text = [NSString stringWithFormat:@"%@\n%@, %@ %@",
+    /* ------------------RASHAD EDITS---------------------------------- */
+    self.storeAddressLabel.text = [NSString stringWithFormat:@"%@\n%@, %@ %@\n%@ miles from you",
                                    self.store.streetAddress,
                                    self.store.city, self.store.state,
-                                   self.store.zipcode];
+                                   self.store.zipcode,
+                                   self.storeDistance];
     
+    /* ---------------------------------------------------- */
     
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(self.store.lat, self.store.lng);
     MKCoordinateRegion region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(0.05, 0.05));

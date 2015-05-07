@@ -12,8 +12,12 @@
 
 @property (strong, nonatomic) id<StoreData> store;
 
+/* ------------------RASHAD EDITS---------------------------------- */
+@property (strong, nonatomic) NSString *storeDistance;
+/* ---------------------------------------------------- */
 @end
 
 @interface GPDStoreAnnotation : NSObject  <MKAnnotation>
 @property (strong, nonatomic) id<StoreData> store;
+
 @end

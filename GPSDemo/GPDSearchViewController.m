@@ -89,6 +89,12 @@
     
     cell.titleLabel.text = product.productName;
     
+    InstanceSpecificInfo *firstInstance = [product.productInstances firstObject];
+    NSNumber *price = [NSNumber numberWithUnsignedLongLong:firstInstance.price/100.f];
+    NSString *priceString = [NSString stringWithFormat:@"%@",
+                             [NSNumberFormatter localizedStringFromNumber:price numberStyle:NSNumberFormatterCurrencyStyle]];
+    cell.priceLabel.text = priceString ? priceString : @"";
+    
     NSString *url = [product urlForImageWithinSize:CGSizeMake(480, 640)];
     UIImage *cachedImage = [[GPDImageFetcher sharedInstance] cachedImageForURL:url];
     

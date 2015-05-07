@@ -42,9 +42,12 @@
 @property (strong, nonatomic) GPDShoppingListViewController *shoppingListViewController;
 @property (strong, nonatomic) SCWebTrackingEventBatchSender *batchSender;
 
+@property SCBrowseNode *node;
 
 @end
 @implementation GPDAppDelegate
+
+@synthesize userLocation;
 
 #pragma mark UIApplicationDelegate
 
@@ -120,7 +123,7 @@
     [GPSSDKConfiguration configureBannerManager:self];
     [BannerView setBannerActionDelegate:self];
     [SCGeoFenceManager configureForDelegate:self];
-    [SCBeaconDeviceManager startBeaconDeviceManagerForDelegate:self reqireOptIn:NO];
+    [SCBeaconDeviceManager startBeaconDeviceManagerForDelegate:self reqireOptIn:YES];
     [SCBrowse configureBrowse:self];
     [[SCBrowse defaultHierarchy] fetch];
     self.batchSender = [[SCWebTrackingEventBatchSender alloc] init];
@@ -211,7 +214,14 @@
 
 -(void)locationUpdated:(SCGeoLocation *)location
 {
+    
     NSLog(@"Location was updated to %lf, %lf", location.latlon.latitude, location.latlon.longitude);
+    
+    /* --------------------- RASHAD EDITS ------------------------------- */
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"locationUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:location forKey:@"currentLocation"]];
+    
+    /* -------------------------- END -------------------------- */
 }
 
 #pragma mark - Delegate methods: SCBeaconDeviceManagerDelegate  // All of the methods in the protocol are optional.
